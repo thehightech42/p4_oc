@@ -32,7 +32,7 @@
                 ?>
             <ol>
                 <a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Connexion</a>
-                <a href="#" class="btn btn-info" role="button" aria-pressed="true">Inscription</a>
+                <a href="index.php?type=user&action=add" class="btn btn-info" role="button" aria-pressed="true">Inscription</a>
             </ol>
             <?php
             }

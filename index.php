@@ -1,8 +1,7 @@
 //Routeur of website
 <?php
-require_once('controller/controller.php');
-
-//$controller_front = new ControllerFront;
+require_once('controller/controllerChapter.php');
+require_once('controller/controllerUser.php');
 
 try {
     $controller_chapter = new ControllerChapter;
@@ -18,7 +17,12 @@ try {
         }
 
         elseif($_GET['type'] === "user"){
-                
+                $controllerUser = new ControllerUser;
+                if($_GET['action'] === 'add'){
+                    $controllerUser->addUser();
+                }elseif($_GET['action'] === 'register'){
+
+                }
 
 
             }
