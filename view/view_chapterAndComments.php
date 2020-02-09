@@ -1,13 +1,13 @@
 <?php
-
 ob_start();
 
 while($use_chapter = $chapter->fetch()){
-    $titlePage = $use_chapter['chapter_name'];
+
+    $titlePage = "Chapitre ". $use_chapter['chapter_number'] .' - ' .$use_chapter['chapter_name'];
 
 ?>
     <div>
-        <h3>Chapitre : <?= $use_chapter['chapter_name']; ?></h3>
+        <h3>Chapitre <?= $use_chapter['chapter_number'] .' - ' .$use_chapter['chapter_name']; ?></h3>
 
         <p><?= $use_chapter['chapter_content']; ?></p>
     </div>
@@ -15,8 +15,20 @@ while($use_chapter = $chapter->fetch()){
 
     <div>
         <h4>Commentaire :</h4>
-
 <?php
+}
+if(isset($_SESSION['pseudo'])){
+    ?>
+    <form action="http://localhost:8888/?type=chapter&action=addComment">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Publier</button>
+    </form>
+
+    <?php
 }
 
 while($comment = $comments->fetch()){

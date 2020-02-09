@@ -25,7 +25,7 @@ ob_start();
             Inscription :
         </h3>
 
-        <form action="../controller/registerPage.php?type=user&action=register" method="POST">
+        <form action="http://localhost:8888/?type=user&action=register" method="POST">
             <div class="form-group">
                 <label for="first_name">Prenom :</label>
                 <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name ="first_name" placeholder="Prenom">

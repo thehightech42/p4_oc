@@ -29,5 +29,16 @@ class ManagementChapter extends BDD{
         return $comments;
     }
 
+    public function registerChapter(){
+        $bd = $this->AccesBDD();
+        $registerChapter = $bd->prepare('INSERT INTO chapters(chapter_name, chapter_number, chapter_content) VALUES(:chapter_name, :chapter_number, :chapter_content)');
+        $registerChapter->execute(array(
+            'chapter_name'=> $_POST['chapter_name'],
+            'chapter_number' => $_POST['chapter_number'],
+            'chapter_content' => $_POST['chapter_content']
+        ));
+
+    }
+
 
 }

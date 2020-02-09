@@ -19,4 +19,19 @@ require_once('model/model_chapter.php');
             require('view/view_chapterAndComments.php');
 
         }
+        public function addComment(){
+
+
+        }
+        public function addChapter(){
+            require('view/viewAddChapter.php');
+        }
+
+        public function registerChapter(){
+            $model_chapter = new ManagementChapter;
+            $registerChapter = $model_chapter->registerChapter();
+            require('template.php');
+
+            header('Location :http://localhost:8888/?type=chapter&action=chapterList');
+        }
     }
