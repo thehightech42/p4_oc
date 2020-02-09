@@ -5,16 +5,27 @@ require_once('controller/controller.php');
 //$controller_front = new ControllerFront;
 
 try {
-    $controller_front = new ControllerFront;
-    if(isset($_GET['action'])){
-        if($_GET['action'] === 'chapter'){
-            $controller_front->chapterAndComments($_GET['id']);
+    $controller_chapter = new ControllerChapter;
+    if(isset($_GET['type']) && isset($_GET['action'])){
 
-        }elseif($_GET['action'] === "chapterList"){
-            $controller_front->chapterList();
+        if($_GET['type'] === "chapter"){
+            if($_GET['action'] === 'chapter'){
+                $controller_chapter->chapterAndComments($_GET['id']);
+
+            }elseif($_GET['action'] === "chapterList"){
+                $controller_chapter->chapterList();
+            }
         }
+
+        elseif($_GET['type'] === "user"){
+                
+
+
+            }
+
     }else{
-        $controller_front->chapterList();
+        $controller_chapter = new ControllerChapter;
+        $controller_chapter->chapterList();
     }
 
 }

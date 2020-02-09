@@ -1,9 +1,8 @@
 <?php
 
 require_once('model/model_chapter.php');
-require_once('model/model_user.php');
 
-    class ControllerFront{ //Chapter controller
+    class ControllerChapter{ //Chapter controller
         public function chapterList(){
             $model_front = new ManagementChapter;
             $chapters = $model_front->chapterLists();

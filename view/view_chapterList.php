@@ -6,7 +6,7 @@ while($chapter = $chapters->fetch()){
     ?>
     <h4>Chapitre : <?= $chapter['chapter_number'] .' - '. $chapter['chapter_name']?></h4>
 
-    <p><a href="../index.php?action=chapter&id=<?= $chapter['id']?> ">Voir le chapitre et ses commentaire.</a></p>
+    <p><a href="../index.php?type=chapter&action=chapter&id=<?= $chapter['id']?> ">Voir le chapitre et ses commentaire.</a></p>
     <?php
 
 };
