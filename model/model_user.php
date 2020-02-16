@@ -1,5 +1,7 @@
 <?php
 
+namespace P4\Model;
+
 require_once('model.php');
 
 class ManagementUser extends BDD{

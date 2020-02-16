@@ -1,7 +1,11 @@
 <!--Routeur of website-->
 <?php
+
+
 require_once('controller/controllerChapter.php');
 require_once('controller/controllerUser.php');
+
+
 
 try {
     $controller_chapter = new ControllerChapter;
@@ -17,10 +21,16 @@ try {
                 }elseif($_GET['action'] === "addComment"){
                     $controller_chapter->addComment();
 
-                }elseif($_GET['action'] = "addChapter"){
+                }elseif($_GET['action'] === "addChapter"){
                     $controller_chapter->addChapter();
 
+                }elseif($_GET['action'] === "updateChapter"){
+                    $controller_chapter->controlUpdateChapter();
                 }
+                elseif($_GET['action'] === "deleteChapter"){
+                    $controller_chapter->deleteChapter($_GET['id']);
+                }
+
             }
 
             elseif($_GET['type'] === "user"){

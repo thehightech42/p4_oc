@@ -4,7 +4,7 @@ require_once('controller/controllerChapter.php');
 require_once('controller/controllerUser.php');
 
 try {
-    if(isset($_POST['chapter_name']) && isset($_POST['chapter_number']) &&isset($_POST['chapter_content'])){
+    if(isset($_POST['chapter_name']) && isset($_POST['chapter_number']) &&isset($_POST['chapter_content']) && !isset($_GET['type'])){
         $controller_chapter = new ControllerChapter;
         $controller_chapter->registerChapter();
 
@@ -12,6 +12,9 @@ try {
         isset($_POST['user_mail']) && isset($_POST['pass_hash']) && isset($_POST['pass_hash']) && isset($_POST['pass_hash1'])){
         $controllerUser = new ManagementUser;
 
+    }elseif($_GET['type'] === "chapter" && $_GET['action'] === "updateChapter"){
+        $controller_chapter = new ControllerChapter;
+        $controller_chapter->updateChapter($_GET['id']);
     }
     else{
         $controller_chapter = new ControllerChapter;

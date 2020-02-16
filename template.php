@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$_SESSION['pseudo'] = "a.pfistner";
+
 ?>
 
 <!DOCTYPE html>
