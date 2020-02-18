@@ -1,6 +1,6 @@
 <!--Routeur of website-->
 <?php
-
+session_start();
 
 require_once('controller/controllerChapter.php');
 require_once('controller/controllerUser.php');
@@ -37,16 +37,20 @@ try {
                 $controllerUser = new ControllerUser;
                 if($_GET['action'] === 'add'){
                     $controllerUser->addUser();
-                }elseif($_GET['action'] === 'register'){
-
                 }elseif($_GET['action'] === "endSession"){
                     $controllerUser->endSession();
+                }elseif($_GET['action'] === "forSingIn"){
+                    $controllerUser->forSingIn();
                 }
-
 
             }
 
-        }else{
+            elseif($_GET['type'] === "test" && $_GET['action'] === "hash"){
+                require('view/hash.php');
+            }
+
+        }
+        else{
             $controller_chapter = new ControllerChapter;
             $controller_chapter->chapterList();
         }

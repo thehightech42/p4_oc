@@ -1,7 +1,4 @@
 <?php
-session_start();
-
-$_SESSION['pseudo'] = "a.pfistner";
 
 ?>
 
@@ -10,21 +7,25 @@ $_SESSION['pseudo'] = "a.pfistner";
 
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> <?= $titlePage; ?> </title>
 
         <!--CSS Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body style="height:100vh">
     <?php include('view/nav.php');?>
 
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <?= $content ; ?>
-        </div>
+    <div class="container h-75">
+        <div class="row h-75">
+            <div class="col-lg-10 mx-auto">
+                <?= $content ; ?>
+            </div>
 
+        </div>
     </div>
+
 
 
 

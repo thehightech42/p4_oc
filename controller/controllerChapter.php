@@ -1,21 +1,25 @@
 <?php
 
-require_once('model/model_chapter.php');
+require_once('model/ManagementChapter.php');
 
     class ControllerChapter{ //Chapter controller
         public function chapterList(){
             $model_chapter = new P4\Model\ManagementChapter;
             $chapters = $model_chapter->chapterLists();
 
-            require('view/view_chapterList.php');
+            require('view/viewChapterList.php');
         }
 
         public function chapterAndComments(){
             $model_chapter = new P4\Model\ManagementChapter;
             $chapter = $model_chapter->chapter($_GET['id']);
             $comments = $model_chapter->comments($_GET['id']);
-
-            require('view/view_chapterAndComments.php');
+            $test = $chapter->rowCount();
+            if($test === 0){
+                $this->chapterList();
+            }else{
+                require('view/viewChapterAndComments.php');
+            }
 
         }
         public function addComment(){

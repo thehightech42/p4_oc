@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:8888/?type=chapter&action=addChapter">Ajouter un chapitre</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?type=test&action=hash">Hash</a>
+            </li>
         </ul>
         <ul>
             <?php
@@ -34,7 +37,7 @@
             }else{
                 ?>
             <ol>
-                <a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Connexion</a>
+                <a href="index.php?type=user&action=forSingIn" class="btn btn-secondary" role="button" aria-pressed="true">Connexion</a>
                 <a href="../index.php?type=user&action=add" class="btn btn-info" role="button" aria-pressed="true">Inscription</a>
             </ol>
             <?php
