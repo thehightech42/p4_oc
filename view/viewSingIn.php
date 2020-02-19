@@ -14,24 +14,24 @@ ob_start();
             <form action="indexPost.php?type=user&action=singin" method="POST">
                 <div class="form-group">
                     <label for="pseudo">Pseudo :<input type="text" id="pseudo" name="pseudo" class="form-control
-                <?php
+                    <?php
                         if(isset($_GET['info']) && $_GET['info'] === "echec"){
                             ?>
                         border border-danger
-                        <?php
+                            <?php
                         }
-                        ?>
+                    ?>
                 " placeholder="Pseudo" required></label>
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe :<input type="password" id="password" name="password" class="form-control
                 <?php
-                        if(isset($_GET['info']) && $_GET['info'] === "echec"){
-                            ?>
-                        border border-danger
-                        <?php
-                        }
+                    if(isset($_GET['info']) && $_GET['info'] === "echec"){
                         ?>
+                    border border-danger
+                        <?php
+                    }
+                ?>
                 " placeholder="Mot de passe" required></label>
                 </div>
                 <div class="form-group">

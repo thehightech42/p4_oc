@@ -50,14 +50,21 @@ class ControllerUser{
     }
     public function singIn($pseudo, $password){
         $modelUser = new P4\Model\ManagementUser;
-        $reqPassHash = $modelUser->takePassword($pseudo);
-        $passHashBDD = $reqPassHash->fetch();
+        $reqInformations = $modelUser->takeLoginInformation($pseudo);
+        $informationsLogin = $reqInformations->fetch();
 
-        $resultat = password_verify($password, $passHashBDD["pass_hash"]);
+        $resultat = password_verify($password, $informationsLogin["pass_hash"]);
 
         if($resultat){
-            var_dump($resultat);
-            //header('Location: index.php?info=connexion-ok');
+            $_SESSION['pseudo'] = $informationsLogin['pseudo'];
+            $_SESSION['admin'] = $informationsLogin['admin'];
+            $_SESSION['first_name'] = $informationsLogin['first_name'];
+            $_SESSION['last_name'] = $informationsLogin['last_name'];
+
+            //ob_start();
+
+            //$cookie = ob_get_clean();
+            header('Location: index.php?info=connexion-ok');
         }else{
             header('Location: index.php?type=user&action=forSingIn&info=echec');
         }

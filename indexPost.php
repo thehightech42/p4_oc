@@ -1,5 +1,7 @@
 <!--Routeur POST-->
 <?php
+session_start();
+
 require_once('controller/controllerChapter.php');
 require_once('controller/controllerUser.php');
 
@@ -16,6 +18,7 @@ try {
     }elseif($_GET['type'] === "chapter" && $_GET['action'] === "updateChapter"){
         $controller_chapter = new ControllerChapter;
         $controller_chapter->updateChapter($_GET['id']);
+
     }elseif($_GET['type'] === "user" && $_GET['action'] === "singin"){
         $controllerUser = new ControllerUser;
         $controllerUser->singIn($_POST['pseudo'], $_POST['password']);

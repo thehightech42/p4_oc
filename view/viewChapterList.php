@@ -1,7 +1,7 @@
 <?php
-
 ob_start();
 $titlePage = "Listes des articles";
+
 while($chapter = $chapters->fetch()){
 
     ?>
@@ -11,13 +11,18 @@ while($chapter = $chapters->fetch()){
 
             <p><a href="../index.php?type=chapter&action=chapter&id=<?= $chapter['id']?> ">Voir le chapitre et ses commentaires.</a></p>
         </div>
-        <div class="col-lg-2">
-            <p><a href="../index.php?type=chapter&action=updateChapter&id=<?= $chapter['id'] ?>">Modifier</a></p>
-        </div>
-        <div class="col-lg-2">
-            <p><a href="../index.php?type=chapter&action=deleteChapter&id=<?= $chapter['id'] ?>">Supprimer</a></p>
-        </div>
-
+        <?php
+            if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1 && $more == "admin" ){
+                ?>
+            <div class="col-lg-2">
+                <p><a href="../index.php?type=chapter&action=updateChapter&id=<?= $chapter['id'] ?>">Modifier</a></p>
+            </div>
+            <div class="col-lg-2">
+                <p><a href="../index.php?type=chapter&action=deleteChapter&id=<?= $chapter['id'] ?>">Supprimer</a></p>
+            </div>
+                <?php
+                }
+        ?>
     </div>
 
     <?php

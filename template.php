@@ -1,4 +1,14 @@
 <?php
+if(isset($cookies)){
+    $cookies;
+}
+
+if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+    $admin = 1;
+}else{
+    $admin = 0;
+}
+
 
 ?>
 
@@ -17,9 +27,25 @@
     <body style="height:100vh">
     <?php include('view/nav.php');?>
 
-    <div class="container h-75">
+    <div class="container h-75 mt-5
+    <?php if($admin == 1){
+        ?>
+        m-0
+        <?php
+        }
+        ?>
+        ">
         <div class="row h-75">
-            <div class="col-lg-10 mx-auto">
+            <?php
+            if($admin === 1){
+                ?>
+                <div class="col-lg-4">
+                    <?php include('view/viewNavAdmin.php');?>
+                </div>
+            <?php
+            }
+            ?>
+            <div class="col-lg-8 mx-auto">
                 <?= $content ; ?>
             </div>
 

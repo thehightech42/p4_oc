@@ -18,12 +18,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:8888/?action=chapterList">Contact</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8888/?type=chapter&action=addChapter">Ajouter un chapitre</a>
-            </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="index.php?type=test&action=hash">Hash</a>
-            </li>
+            </li>-->
         </ul>
         <ul>
             <?php

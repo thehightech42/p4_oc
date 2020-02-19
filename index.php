@@ -5,7 +5,11 @@ session_start();
 require_once('controller/controllerChapter.php');
 require_once('controller/controllerUser.php');
 
-
+if(isset($_GET['more'])){
+    $more = $_GET['more'];
+}else{
+    $more = NULL;
+}
 
 try {
     $controller_chapter = new ControllerChapter;
@@ -16,7 +20,7 @@ try {
                     $controller_chapter->chapterAndComments($_GET['id']);
 
                 }elseif($_GET['action'] === "chapterList"){
-                    $controller_chapter->chapterList();
+                    $controller_chapter->chapterList($more);
 
                 }elseif($_GET['action'] === "addComment"){
                     $controller_chapter->addComment();
@@ -52,7 +56,7 @@ try {
         }
         else{
             $controller_chapter = new ControllerChapter;
-            $controller_chapter->chapterList();
+            $controller_chapter->chapterList($more);
         }
 
 }

@@ -1,19 +1,10 @@
 <?php
-
 namespace P4\Model;
 
 require_once('BDD.php');
 
 class ManagementUser extends BDD{
 
-    public function tryUser($pseudo){
-        $bd = $this->AccesBDD();
-
-        $connexion = $bd->prepare('SELECT pseudo, pass_hash FR0M users WHERE = :pseudo');
-        $connexion->execute(array('pseudo'=> $pseudo));
-        return $connexion;
-
-    }
 
     public function tryPseudo($pseudo){
         $bd = $this->AccesBDD();
@@ -30,9 +21,9 @@ class ManagementUser extends BDD{
         return $reqMail;
     }
 
-    public function takePassword($pseudo){
+    public function takeLoginInformation($pseudo){
         $bd = $this->AccesBDD();
-        $reqPass = $bd->prepare('SELECT pass_hash FROM users WHERE pseudo = :pseudo');
+        $reqPass = $bd->prepare('SELECT * FROM users WHERE pseudo = :pseudo');
         $reqPass->execute(array('pseudo'=> $pseudo));
         return $reqPass;
     }
