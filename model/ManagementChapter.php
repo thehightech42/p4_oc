@@ -24,12 +24,12 @@ class ManagementChapter extends BDD{
         return $comments;
     }
 
-    public function registerChapter(){
+    public function registerChapter($chapter_name, $chapter_number, $chapter_content){
         $registerChapter = $this->_bd->prepare('INSERT INTO chapters(chapter_name, chapter_number, chapter_content) VALUES(:chapter_name, :chapter_number, :chapter_content)');
         $registerChapter->execute(array(
-            'chapter_name' => $_POST['chapter_name'],
-            'chapter_number' => $_POST['chapter_number'],
-            'chapter_content' => $_POST['chapter_content']
+            'chapter_name' => $chapter_name,
+            'chapter_number' => $chapter_number,
+            'chapter_content' => $chapter_content
         ));
 
     }
@@ -70,6 +70,21 @@ class ManagementChapter extends BDD{
     public function reportComment($idComment){
         $reportComment = $this->_bd->prepare('UPDATE comments SET status_of_comment = 1 WHERE id = :id ');
         $reportComment->execute(array('id' => $idComment));
+    }
+
+    public function commentsManagement(){
+        $commentsManagement = $this->_bd->query('SELECT * FROM comments WHERE status_of_comment = 1');
+        return $commentsManagement;
+    }
+
+    public function acceptComment($idComment){
+        $acceptComment = $this->_bd->prepare('UPDATE comments SET status_of_comment = 0 WHERE id = :idComment');
+        $acceptComment->execute(array('idComment' => $idComment));
+    }
+
+    public function deleteComment($idComment){
+        $deteComment = $this->_bd->prepare('DELETE FROM comments WHERE id = :idComment');
+        $deteComment->execute(array('idComment' => $idComment));
     }
 
 

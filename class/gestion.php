@@ -11,6 +11,10 @@ class gestion{
             $str = $str."...";
             return $str;
         }
+        else{
+            $text = $text."...";
+            return $text;
+        }
 
 
     }

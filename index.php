@@ -7,10 +7,10 @@ require_once('controller/controllerUser.php');
 
 
 try {
-    $controller_chapter = new ControllerChapter;
         if(isset($_GET['type']) && isset($_GET['action'])){
 
             if($_GET['type'] === "chapter"){
+                $controller_chapter = new ControllerChapter;
                 if($_GET['action'] === 'chapter'){
                     $controller_chapter->chapterAndComments($_GET['idChapter']);
                 }
@@ -21,7 +21,7 @@ try {
                     $controller_chapter->addChapter();
                 }
                 elseif($_GET['action'] === "addChapter"){
-                    $controller_chapter->registerChapter();
+                    $controller_chapter->registerChapter($_POST['chapter_name'], $_POST['chapter_number'], $_POST['chapter_content']);
                 }
                 elseif($_GET['action'] === "forUpdateChapter"){
                     $controller_chapter->forUpdateChapter($_GET['idChapter']);
@@ -34,10 +34,18 @@ try {
                 }
                 elseif($_GET['action'] === "addComment"){
                     $controller_chapter->addComment($_GET['idChapter'], $_POST['content']);
-
-                }elseif($_GET['action'] === "reportComment"){
-                    //var_dump($_GET['idChapter'], $_GET['idComment']);
+                }
+                elseif($_GET['action'] === "reportComment"){
                     $controller_chapter->reportComment($_GET['idComment'], $_GET['idChapter']);
+                }
+                elseif($_GET['action'] === "commentsManagement"){
+                    $controller_chapter->commentsManagement();
+                }
+                elseif($_GET['action'] === "acceptComment"){
+                    $controller_chapter->acceptComment($_GET['idComment']);
+                }
+                elseif($_GET['action'] === "deleteComment"){
+                    $controller_chapter->deleteComment($_GET['idComment']);
                 }
 
             }
