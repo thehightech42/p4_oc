@@ -3,7 +3,7 @@
 require_once('model/ManagementChapter.php');
 
     class ControllerChapter{ //Chapter controller
-        public function chapterList($more){
+        public function chapterList(){
             $model_chapter = new P4\Model\ManagementChapter;
             $chapters = $model_chapter->chapterLists();
 
@@ -33,9 +33,9 @@ require_once('model/ManagementChapter.php');
             $this->chapterList();
         }
 
-        public function controlUpdateChapter(){
+        public function forUpdateChapter($idChapter){
             $model_chapter = new P4\Model\ManagementChapter();
-            $controlUpdateChapter = $model_chapter->controlUpdateChapter($_GET['id']);
+            $controlUpdateChapter = $model_chapter->forUpdateChapter($idChapter);
 
             while($upChapter = $controlUpdateChapter->fetch()){
                 require('view/viewAddChapter.php');
@@ -43,9 +43,9 @@ require_once('model/ManagementChapter.php');
 
         }
 
-        public function updateChapter($id){
+        public function updateChapter($id, $chapter_name, $chapter_number, $chapter_content){
             $model_chapter = new P4\Model\ManagementChapter();
-            $updateChapter = $model_chapter->updateChapter($id);
+            $updateChapter = $model_chapter->updateChapter($id, $chapter_name, $chapter_number, $chapter_content);
 
             $this->chapterList();
         }

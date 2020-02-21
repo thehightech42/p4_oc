@@ -34,13 +34,13 @@ if($_GET['action'] === 'updateChapter'){
 
     <form
             <?php
-            if(isset($_GET['type']) && isset($_GET['action']) && $_GET['action'] == "updateChapter"){
+            if(isset($_GET['type']) && isset($_GET['action']) && $_GET['action'] == "forUpdateChapter"){
                 ?>
-                action="indexPost.php?type=chapter&action=updateChapter&id=<?=$_GET['id']?>"
+                action="index.php?type=chapter&action=updateChapter&idChapter=<?=$_GET['idChapter']?>"
                 <?php
             }else{
                 ?>
-                action="indexPost.php"
+                action="index.php?type=chapter&action=addChapter"
                 <?php
             }
             ?>

@@ -19,19 +19,26 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     </head>
 
     <body style="height:100vh">
-    <?php include('view/nav.php');?>
 
-    <div class="container h-100 pl-0 col-lg-12<?php if($admin == 1){?> m-0<?php }?>">
+    <div class="container-fluid h-100 p-0 <?php if($admin == 1){?> m-0<?php }?>">
+        <?php include('view/nav.php');?>
 
-        <?php if(!isset($_GET['type']) || $_GET['type'] === "home"){
-            echo $content;
+        <?php if(!isset($_GET['type']) || $_GET['type'] === "home"){ ?>
+            <div class="row p-0 m-0">
+                <div class="col-lg-12 p-0">
+                    <?= $content ; ?>
+                </div>
+            </div>
+
+            <?php
+
         }else{
                 ?>
-                <div class="row h-100 p-0">
+                <div class="row h-100">
                 <?php
                 if($admin === 1){
                     ?>
-                    <div class="col-lg-2 p-0 ">
+                    <div class="col-lg-2">
                         <?php include('view/viewNavAdmin.php');?>
                     </div>
                 <?php

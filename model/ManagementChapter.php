@@ -34,19 +34,19 @@ class ManagementChapter extends BDD{
 
     }
 
-    public function controlUpdateChapter($id){
+    public function forUpdateChapter($id){
         $updateForChapter = $this->_bd->prepare('SELECT * FROM chapters WHERE id = :id');
         $updateForChapter->execute(array('id' => $id));
         return $updateForChapter;
     }
 
-    public function updateChapter($id){
+    public function updateChapter($idChapter, $chapter_name, $chapter_number, $chapter_content){
         $updateChapter = $this->_bd->prepare('UPDATE chapters SET chapter_name= :chapter_name, chapter_number= :chapter_number, chapter_content= :chapter_content WHERE id = :id');
         $updateChapter->execute(array(
-            'chapter_name' => $_POST['chapter_name'],
-            'chapter_number' => $_POST['chapter_number'],
-            'chapter_content' => $_POST['chapter_content'],
-            'id' => $id
+            'chapter_name' => $chapter_name,
+            'chapter_number' => $chapter_number,
+            'chapter_content' => $chapter_content,
+            'id' => $idChapter
         ));
     }
 

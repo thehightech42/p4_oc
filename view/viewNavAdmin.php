@@ -3,7 +3,7 @@
         <a class="nav-link text-secondary" href="index.php?type=chapter&action=addChapter">Ajouter un chapitre</a>
     </li>
     <li class="nav-item mb-4">
-        <a class="nav-link text-secondary" href="index.php?type=chapter&action=chapterList&more=admin">Gestion des chapitres</a>
+        <a class="nav-link text-secondary" href="index.php?type=chapter&action=chapterList">Gestion des chapitres</a>
     </li>
     <li class="nav-item mb-4">
         <a class="nav-link text-secondary" href="#">Gestions des commentaires signalés</a>

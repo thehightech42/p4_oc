@@ -49,17 +49,13 @@ while($comment = $comments->fetch()){
             <?php
             }
             ?>
-
-
-
-        </div>
-
     </div>
 
-
 <?php
-
 };
+?>
+    </div>
+<?php
 
 $content = ob_get_clean();
 

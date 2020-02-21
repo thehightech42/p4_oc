@@ -22,7 +22,7 @@ ob_start();
             Inscription :
         </h3>
 
-        <form action="indexPost.php" method="POST">
+        <form action="index.php?type=user&action=registration" method="POST">
             <div class="form-group">
                 <label for="first_name">Prenom :</label>
                 <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name ="first_name" placeholder="Prenom"
@@ -102,7 +102,7 @@ ob_start();
 
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
-        <p><a href="index.php?type=user&action=singIn"></a></p>
+        <p>Vous avez un compte ? <a href="index.php?type=user&action=forSingIn"> Connectez vous ici !</a></p>
     </div>
 </div>
 

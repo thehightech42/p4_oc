@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-secondary bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +16,7 @@
                 <a class="nav-link text-white" href="index.php?type=chapter&action=chapterList">Chapitres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="index.php/?action=chapterList">Contact</a>
+                <a class="nav-link text-white" href="index.php?action=chapterList">Contact</a>
             </li>
             <!--<li class="nav-item">
                 <a class="nav-link" href="index.php?type=test&action=hash">Hash</a>
@@ -28,7 +28,7 @@
                 ?>
                 <ol class="nav-item">
                     <a href="#" class="btn btn-secondary" role="button" aria-pressed="true"><?= $_SESSION['pseudo'];?></a>
-                    <a href="index.php/?type=user&action=endSession" class="btn btn-info" role="button" aria-pressed="true">Deconnexion</a>
+                    <a href="index.php?type=user&action=endSession" class="btn btn-info" role="button" aria-pressed="true">Deconnexion</a>
                 </ol>
             <?php
             }else{

@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c49a44c-7d44-461f-b61b-68989f4e356f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/Alaska.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/AlaskaMax.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/viewHome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class/gestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/controllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerChapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/BDD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indexPost.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ManagementChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementChapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ManagementUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewAddChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewAddChapter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewChapterAndComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterAndComments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewChapterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewHome.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewNavAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewNavAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewRegistration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewSingIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewSingIn.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,11 +70,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P4\p4_oc\class" />
+      <recent name="C:\wamp64\www\P4\p4_oc" />
       <recent name="C:\wamp64\www\P4\p4_oc\img" />
       <recent name="C:\wamp64\www\P4\p4_oc\view" />
-      <recent name="C:\wamp64\www\P4\p4_oc" />
       <recent name="$PROJECT_DIR$/controller" />
-      <recent name="$PROJECT_DIR$/model" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -93,7 +90,7 @@
       <workItem from="1581043793122" duration="20029000" />
       <workItem from="1581112481057" duration="13688000" />
       <workItem from="1582160207115" duration="4466000" />
-      <workItem from="1582207259776" duration="24324000" />
+      <workItem from="1582207259776" duration="37771000" />
     </task>
     <servers />
   </component>

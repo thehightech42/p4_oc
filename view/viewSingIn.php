@@ -3,13 +3,12 @@ $titlePage = "Connexion";
 
 ob_start();
 ?>
-<div class="row h-75 align-items-center mx-auto">
+<div class="row h-75 align-items-center">
 
-    <div class="mx-auto col-lg-4 mx-auto">
-        <div class="row">
-            <div class="col-lg-12 center-bloc align-items-center">
+        <div class="row w-100">
+            <div class="col-lg-4 align-items-center mx-auto">
                 <h4>Connexion :</h4>
-                <form action="indexPost.php?type=user&action=singin" method="POST">
+                <form action="index.php?type=user&action=singIn" method="POST">
                     <div class="form-group">
                         <label for="pseudo">Pseudo :
                             <input type="text" id="pseudo" name="pseudo" class="form-control <?php if(isset($_GET['info']) && $_GET['info'] === "echec"){?>border border-danger<?php }?>" placeholder="Pseudo" required>
@@ -29,7 +28,6 @@ ob_start();
             </div>
 
         </div>
-    </div>
 
 </div>
 
