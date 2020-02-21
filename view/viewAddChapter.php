@@ -5,7 +5,8 @@ ob_start();
     <script src="https://cdn.tiny.cloud/1/xan0xqgn36elll0x9xwtm3pzch1knjm4m9byc6zt3iu7ogzn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: '#mytextarea',
+            height : 600
         });
     </script>
 <?php
@@ -13,16 +14,23 @@ $script = ob_get_clean();
 $titlePage = "Ajout d'un chapitre";
 
 ob_start();
-
+if($_GET['action'] === 'updateChapter'){
+    ?>
+    <h4>Mise à jour de chapitre</h4>
+    <?php
+}else{
+    ?>
+    <h4>Ajout de chapitre</h4>
+    <p>Pour ajouter un chapitre, il suffit :</p>
+    <?php
+}
 ?>
-<h4>Bienvenue sur la page d'ajout de chapitre</h4>
-
-<p>Pour ajouter un chapitre, il suffit :</p>
 <ol>
     <li>Donner un nom au chapitre.</li>
     <li>Donner une numéro au chapitre.</li>
     <li>Remplir le contenu du chapitre dans l'interface prevu à cette effet.</li>
 </ol>
+<p>Les chapitres restes modifiables après publications.</p>
 
     <form
             <?php

@@ -35,8 +35,7 @@ class ControllerUser{
                     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
                     $userRegister = $modelUser->registerUser($first_name, $last_name, $pseudo, $mail, $pass_hash);
 
-                    var_dump($pass_hash);
-                    //header('Location: index.php');
+                    header('Location: index.php?type=user&action=forSingIn');
                 }
             }else{
                 $this->addUser($userInformation);
@@ -61,9 +60,6 @@ class ControllerUser{
             $_SESSION['first_name'] = $informationsLogin['first_name'];
             $_SESSION['last_name'] = $informationsLogin['last_name'];
 
-            //ob_start();
-
-            //$cookie = ob_get_clean();
             header('Location: index.php?info=connexion-ok');
         }else{
             header('Location: index.php?type=user&action=forSingIn&info=echec');
@@ -76,7 +72,7 @@ class ControllerUser{
 
     public function endSession(){
         session_destroy();
-        header('Location: index.php');
+        header('Location: http://localhost/P4/p4_oc');
 
     }
 

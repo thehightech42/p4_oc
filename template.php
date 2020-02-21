@@ -1,15 +1,9 @@
 <?php
-if(isset($cookies)){
-    $cookies;
-}
-
 if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     $admin = 1;
 }else{
     $admin = 0;
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -27,29 +21,29 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     <body style="height:100vh">
     <?php include('view/nav.php');?>
 
-    <div class="container h-75 mt-5
-    <?php if($admin == 1){
-        ?>
-        m-0
-        <?php
-        }
-        ?>
-        ">
-        <div class="row h-75">
-            <?php
-            if($admin === 1){
-                ?>
-                <div class="col-lg-4">
-                    <?php include('view/viewNavAdmin.php');?>
-                </div>
-            <?php
-            }
-            ?>
-            <div class="col-lg-8 mx-auto">
-                <?= $content ; ?>
-            </div>
+    <div class="container h-100 pl-0 col-lg-12<?php if($admin == 1){?> m-0<?php }?>">
 
-        </div>
+        <?php if(!isset($_GET['type']) || $_GET['type'] === "home"){
+            echo $content;
+        }else{
+                ?>
+                <div class="row h-100 p-0">
+                <?php
+                if($admin === 1){
+                    ?>
+                    <div class="col-lg-2 p-0 ">
+                        <?php include('view/viewNavAdmin.php');?>
+                    </div>
+                <?php
+                }
+                ?>
+                    <div class="col-lg-8 col-lg-offset-2<?php if($admin == 0){?> mx-auto <?php }?>">
+                        <?= $content ; ?>
+                    </div>
+            </div>
+            <?php
+        }?>
+
     </div>
 
 

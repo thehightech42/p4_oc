@@ -2,6 +2,7 @@
 ob_start();
 
 while($use_chapter = $chapter->fetch()){
+    $id = $use_chapter['id'];
 
     $titlePage = "Chapitre ". $use_chapter['chapter_number'] .' - ' .$use_chapter['chapter_name'];
 
@@ -19,10 +20,10 @@ while($use_chapter = $chapter->fetch()){
 }
 if(isset($_SESSION['pseudo'])){
     ?>
-    <form action="http://localhost:8888/?type=chapter&action=addComment">
+    <form action="index.php/?type=chapter&action=addComment&idChapter=<?= $id; ?>" method="POST" class="mb-3">
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1">Votre commentaire : </label>
+            <input type="text" id="contentComment" name="content" class="form-control" placeholder="Votre commentaire !">
         </div>
 
         <button type="submit" class="btn btn-primary">Publier</button>
@@ -33,9 +34,24 @@ if(isset($_SESSION['pseudo'])){
 
 while($comment = $comments->fetch()){
     ?>
-        <div>
-            <p>Commentaire de : <?= $comment['pseudo'] ?> posté le <?= $comment['date']?></p>
-            <p><?= $comment['content']?></p>
+        <div class="row">
+            <div class="col-lg-10">
+                <p>Commentaire de : <?= $comment['pseudo'] ?> posté le <?= $comment['published_date'] ?></p>
+                <p><?= $comment['content']?></p>
+            </div>
+
+            <?php
+            if(isset($_SESSION['pseudo'])){
+            ?>
+            <div class="col-lg-2">
+                <a href="index.php?type=chapter&action=reportComment&idComment=<?= $comment['id']?>&idChapter=<?=$_GET['idChapter']?>">Signaler</a>
+            </div>
+            <?php
+            }
+            ?>
+
+
+
         </div>
 
     </div>
