@@ -23,6 +23,7 @@ ob_start();
                         <button type="submit">Connexion</button>
                     </div>
                 </form>
+                <p>Pas encore inscrit ? <a href="index.php?type=user&action=forRegistration"> C'est pas ici !</a></p>
 
 
             </div>

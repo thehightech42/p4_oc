@@ -1,12 +1,14 @@
 <?php
+namespace P4\Gestion;
 
-class gestion{
+class Gestion{
 
-    public function reductionText($text, $numberOfCharacters){
+    public function reductionText(string $text, int $numberOfCharacters) :string
+    {
         if(strlen($text) > $numberOfCharacters){
             $str = strip_tags($text);
             $str = substr($text, 0, $numberOfCharacters);
-            $positionSpace = strpos($str, " ", $numberOfCharacters-10);
+            $positionSpace = strpos($str, " ", -10);
             $str = substr($text, 0, $positionSpace);
             $str = $str."...";
             return $str;
@@ -17,6 +19,14 @@ class gestion{
         }
 
 
+    }
+    public function controlNumber(int $number) :bool
+    {
+        if($number <= 0 || $number > 100000){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
 

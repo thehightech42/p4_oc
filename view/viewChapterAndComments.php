@@ -14,7 +14,7 @@ while($use_chapter = $chapter->fetch()){
     </div>
 
 
-    <div>
+    <div class="mt-5">
         <h4>Commentaire :</h4>
 <?php
 }
@@ -35,20 +35,15 @@ if(isset($_SESSION['pseudo'])){
 while($comment = $comments->fetch()){
     ?>
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-10 mt-3">
                 <p>Commentaire de : <?= $comment['pseudo'] ?> posté le <?= $comment['published_date'] ?></p>
                 <p><?= $comment['content']?></p>
             </div>
 
-            <?php
-            if(isset($_SESSION['pseudo'])){
-            ?>
             <div class="col-lg-2">
                 <a href="index.php?type=chapter&action=reportComment&idComment=<?= $comment['id']?>&idChapter=<?=$_GET['idChapter']?>">Signaler</a>
             </div>
-            <?php
-            }
-            ?>
+
     </div>
 
 <?php

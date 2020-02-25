@@ -1,10 +1,15 @@
 <?php
+use P4\Gestion\Gestion;
 ob_start();
+
 $titlePage = "Listes des articles";
-require_once('class/gestion.php');
-$gestion = new gestion;
-?><div class="container"><?php
-while($chapter = $chapters->fetch()){
+
+require_once('gestion/Gestion.php');
+$gestion = new Gestion;
+
+?>
+    <div class="container"><?php
+    while($chapter = $chapters->fetch()){
 
     ?>
     <div class="row p-5">
@@ -26,12 +31,12 @@ while($chapter = $chapters->fetch()){
                 <p><a href="index.php?type=chapter&action=deleteChapter&idChapter=<?= $chapter['id'] ?>">Supprimer</a></p>
             </div>
                 <?php
-                }
+            }
         ?>
     </div>
 
     <?php
-};
+    };
     ?></div><?php
 $content = ob_get_clean();
 

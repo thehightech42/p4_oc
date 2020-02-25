@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c49a44c-7d44-461f-b61b-68989f4e356f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/viewReportComment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/gestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/gestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/gestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/Gestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/controllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerChapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/controllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/BDD.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ManagementChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementChapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewNavAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewNavAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ManagementUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewChapterAndComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterAndComments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewChapterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewReportComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewReportComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewSingIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewSingIn.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +53,12 @@
       </set>
     </option>
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1XSeBSmkUusUr7I41dxT3y9Dd0H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -58,7 +73,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -82,7 +97,7 @@
       <workItem from="1581043793122" duration="20029000" />
       <workItem from="1581112481057" duration="13688000" />
       <workItem from="1582160207115" duration="4466000" />
-      <workItem from="1582207259776" duration="47069000" />
+      <workItem from="1582207259776" duration="82356000" />
     </task>
     <servers />
   </component>
@@ -94,6 +109,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581089858578" />
+    <state x="670" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582570094906">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="670" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582570094906" />
     <state x="602" y="170" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581057075754">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -110,10 +129,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582217023619" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1582217042231">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1582387895798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582217042231" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582387895798" />
     <state x="591" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1582207260667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -124,14 +143,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="828" y="431" key="com.jetbrains.php.framework.generators.custom.CustomFrameworkDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582216853986" />
+    <state x="550" y="83" width="819" height="873" key="find.popup" timestamp="1582593731270">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="550" y="83" width="819" height="873" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582593731270" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1582253006705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582253006705" />
-    <state x="577" y="231" width="766" height="670" key="search.everywhere.popup" timestamp="1582210141743">
+    <state x="577" y="231" width="766" height="670" key="search.everywhere.popup" timestamp="1582387849832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581061449381" />
-    <state x="577" y="231" width="766" height="670" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582210141743" />
+    <state x="577" y="231" width="766" height="670" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582387849832" />
   </component>
 </project>

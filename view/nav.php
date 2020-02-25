@@ -10,7 +10,7 @@
                 <a class="nav-link text-white" href="index.php?type=home">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Presentation</a>
+                <a class="nav-link text-white" href="#">Présentation</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="index.php?type=chapter&action=chapterList">Chapitres</a>

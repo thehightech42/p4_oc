@@ -24,7 +24,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         <?php include('view/nav.php');?>
 
         <?php if(!isset($_GET['type']) || $_GET['type'] === "home"){ ?>
-            <div class="row p-0 m-0">
+            <div class="row m-0 p-0">
                 <div class="col-lg-12 p-0">
                     <?= $content ; ?>
                 </div>
@@ -44,7 +44,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
                 <?php
                 }
                 ?>
-                    <div class="col-lg-8 col-lg-offset-2<?php if($admin == 0){?> mx-auto <?php }?>">
+                    <div class="col-lg-8 col-lg-offset-2 m-2 p-3<?php if($admin == 0){?> mx-auto <?php }?>">
                         <?= $content ; ?>
                     </div>
             </div>

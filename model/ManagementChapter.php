@@ -1,7 +1,6 @@
 <?php
 namespace P4\Model;
 
-//session_start();
 require_once('BDD.php');
 
 class ManagementChapter extends BDD{

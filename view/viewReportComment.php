@@ -9,6 +9,7 @@ while($comment = $comments->fetch()){
         <div class="col-lg-10">
             <p>Commentaire de : <?= $comment['pseudo'] ?> posté le <?= $comment['published_date'] ?></p>
             <p><?= $comment['content']?></p>
+
         </div>
         <div class="col-lg-2">
             <p><a href="index.php?type=chapter&action=acceptComment&idComment=<?= $comment['id']?>">Valider</a></p>

@@ -1,8 +1,19 @@
 <?php
+namespace P4\Controller;
+
+use P4\Model\ManagementUser;
 
 require_once('model/ManagementUser.php');
 
+
 class ControllerUser{
+    private $_managementUser;
+
+    function __construct()
+    {
+        $this->_managementUser = new ManagementUser;
+    }
+
     public function addUser($userInformation = []){
         require('view/viewRegistration.php');
     }
@@ -16,9 +27,8 @@ class ControllerUser{
         ];
         if(preg_match('#[-_\.a-zA-Z0-9]+@[-a-zA-Z0-9]+\.[a-z]+$#', $mail)){
             if($password === $password1){
-                $modelUser = new P4\Model\ManagementUser;
-                $tryPseudo = $modelUser->tryPseudo($pseudo);
-                $tryMail = $modelUser->tryMail($mail);
+                $tryPseudo = $this->_managementUser->tryPseudo($pseudo);
+                $tryMail = $this->_managementUser->tryMail($mail);
 
                 $reqTryPseudo = $tryPseudo->rowcount();
                 $reqTryMail = $tryMail->rowcount();
@@ -32,8 +42,7 @@ class ControllerUser{
                     }
                     $this->addUser($userInformation);
                 }else{
-                    $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-                    $userRegister = $modelUser->registerUser($first_name, $last_name, $pseudo, $mail, $pass_hash);
+                    $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
 
                     header('Location: index.php?type=user&action=forSingIn');
                 }
@@ -48,8 +57,8 @@ class ControllerUser{
 
     }
     public function singIn($pseudo, $password){
-        $modelUser = new P4\Model\ManagementUser;
-        $reqInformations = $modelUser->takeLoginInformation($pseudo);
+        $reqInformations = $this->_managementUser->takeLoginInformation($pseudo);
+
         $informationsLogin = $reqInformations->fetch();
 
         $resultat = password_verify($password, $informationsLogin["pass_hash"]);
@@ -59,6 +68,13 @@ class ControllerUser{
             $_SESSION['admin'] = $informationsLogin['admin'];
             $_SESSION['first_name'] = $informationsLogin['first_name'];
             $_SESSION['last_name'] = $informationsLogin['last_name'];
+
+            setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
+            setcookie('admin', $informationsLogin['admin'], time() + 365*24*3600, null, null, false, true);
+            setcookie('first_name', $informationsLogin['first_name'], time() + 365*24*3600, null, null, false, true);
+            setcookie('last_name', $informationsLogin['last_name'], time() + 365*24*3600, null, null, false, true);
+            setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);
+
 
             header('Location: index.php?info=connexion-ok');
         }else{
@@ -72,7 +88,10 @@ class ControllerUser{
 
     public function endSession(){
         session_destroy();
-        header('Location: http://localhost/P4/p4_oc');
+        setcookie("pseudo", '');
+        setcookie("password", '');
+
+        header('Location: http://localhost/P4/p4_oc/index.php');
 
     }
 

@@ -1,4 +1,7 @@
 <?php
+namespace P4\Controller;
+
+use P4\Model\ManagementChapter;
 
 require_once('model/ManagementChapter.php');
 
@@ -8,20 +11,22 @@ require_once('model/ManagementChapter.php');
 
         function __construct()
         {
-            $this->_managementChapter = new P4\Model\ManagementChapter;
+            $this->_managementChapter = new ManagementChapter;
         }
 
         public function chapterList(){
-            $model_chapter = new P4\Model\ManagementChapter;
-            $chapters = $model_chapter->chapterLists();
+            $chapters = $this->_managementChapter->chapterLists();
+            if($chapters === false){
+                throw new \Exception("Connexion bd, code erreur : " . $e->errorCode());
+            }else{
+                require('view/viewChapterList.php');
+            }
 
-            require('view/viewChapterList.php');
         }
 
         public function chapterAndComments($idChapter){
-            $model_chapter = new P4\Model\ManagementChapter;
-            $chapter = $model_chapter->chapter($idChapter);
-            $comments = $model_chapter->comments($idChapter);
+            $chapter = $this->_managementChapter->chapter($idChapter);
+            $comments = $this->_managementChapter->comments($idChapter);
             $test = $chapter->rowCount();
             if($test === 0){
                 $this->chapterList();
@@ -34,47 +39,40 @@ require_once('model/ManagementChapter.php');
             require('view/viewAddChapter.php');
         }
         public function registerChapter($chapter_name, $chapter_number, $chapter_content){
-            $model_chapter = new P4\Model\ManagementChapter;
-            $registerChapter = $model_chapter->registerChapter($chapter_name, $chapter_number, $chapter_content);
+            $registerChapter = $this->_managementChapter->registerChapter($chapter_name, $chapter_number, $chapter_content);
 
             $this->chapterList();
         }
 
         public function forUpdateChapter($idChapter){
-            $model_chapter = new P4\Model\ManagementChapter();
-            $controlUpdateChapter = $model_chapter->forUpdateChapter($idChapter);
+            $controlUpdateChapter = $this->_managementChapter->forUpdateChapter($idChapter);
 
             $upChapter = $controlUpdateChapter->fetch();
             require('view/viewAddChapter.php');
         }
         public function updateChapter($id, $chapter_name, $chapter_number, $chapter_content){
-            $model_chapter = new P4\Model\ManagementChapter();
-            $updateChapter = $model_chapter->updateChapter($id, $chapter_name, $chapter_number, $chapter_content);
+            $updateChapter = $this->_managementChapter->updateChapter($id, $chapter_name, $chapter_number, $chapter_content);
 
             $this->chapterList();
         }
 
         public function deleteChapter($id){
-            $model_chapter = new P4\Model\ManagementChapter();
-            $deleteChapter = $model_chapter->deleteChapter($id);
+            $deleteChapter = $this->_managementChapter->deleteChapter($id);
 
             $this->chapterList(0);
         }
 
         public function addComment($id, $content){
-            $model_chapter = new P4\Model\ManagementChapter();
-            $addComment = $model_chapter->addComment($id, $content);
+            $addComment = $this->_managementChapter->addComment($id, $content);
             $this->chapterAndComments($id);
         }
         public function reportComment($idComment, $idChapter){
-            $model_chapter = new p4\Model\ManagementChapter();
-            $reportComment = $model_chapter->reportComment($idComment);
+            $reportComment = $this->_managementChapter->reportComment($idComment);
 
             $this->chapterAndComments($idChapter);
         }
         public function commentsManagement(){
-            $model_chapter = new P4\Model\ManagementChapter();
-            $comments = $model_chapter->commentsManagement();
+            $comments = $this->_managementChapter->commentsManagement();
 
             require('view/viewReportComment.php');
         }
