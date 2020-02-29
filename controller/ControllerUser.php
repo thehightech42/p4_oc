@@ -3,8 +3,6 @@ namespace P4\Controller;
 
 use P4\Model\ManagementUser;
 
-require_once('model/ManagementUser.php');
-
 
 class ControllerUser{
     private $_managementUser;
@@ -88,10 +86,10 @@ class ControllerUser{
 
     public function endSession(){
         session_destroy();
-        setcookie("pseudo", '');
-        setcookie("password", '');
+        setcookie("pseudo", '', time());
+        setcookie("password", '', time());
 
-        header('Location: http://localhost/P4/p4_oc/index.php');
+        header('Location: index.php');
 
     }
 

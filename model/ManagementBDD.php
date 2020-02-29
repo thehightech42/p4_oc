@@ -2,7 +2,7 @@
 
 namespace P4\Model;
 
-class BDD {
+class ManagementBDD {
     public $_bd;
 
     function __construct()

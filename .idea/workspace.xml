@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c49a44c-7d44-461f-b61b-68989f4e356f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion/Autoloader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/gestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/Gestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerChapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controllerUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/controllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerChapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/controllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/BDD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementBDD.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ManagementChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementChapter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ManagementUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewChapterAndComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterAndComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewChapterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewReportComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewReportComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewSingIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewSingIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewAddChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewAddChapter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +91,8 @@
       <workItem from="1581043793122" duration="20029000" />
       <workItem from="1581112481057" duration="13688000" />
       <workItem from="1582160207115" duration="4466000" />
-      <workItem from="1582207259776" duration="82356000" />
+      <workItem from="1582207259776" duration="82990000" />
+      <workItem from="1582753484049" duration="15098000" />
     </task>
     <servers />
   </component>
@@ -113,14 +108,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="670" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582570094906" />
-    <state x="602" y="170" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581057075754">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="688" y="64" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582758032920">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="602" y="170" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581057075754" />
-    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581088038435">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="688" y="64" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582758032920" />
+    <state x="661" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582985517611">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581088038435" />
+    <state x="661" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582985517611" />
     <state x="667" y="398" key="ComposerCompositePathDialog" timestamp="1582217039259">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -133,12 +130,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582387895798" />
-    <state x="591" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1582207260667">
+    <state x="591" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1582753488015">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581043822113" />
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581112486337" />
-    <state x="591" y="354" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582207260667" />
+    <state x="591" y="354" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582753488015" />
     <state x="828" y="431" key="com.jetbrains.php.framework.generators.custom.CustomFrameworkDialog" timestamp="1582216853986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

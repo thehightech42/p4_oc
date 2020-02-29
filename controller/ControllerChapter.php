@@ -3,7 +3,6 @@ namespace P4\Controller;
 
 use P4\Model\ManagementChapter;
 
-require_once('model/ManagementChapter.php');
 
     class ControllerChapter{ //Chapter controller
 

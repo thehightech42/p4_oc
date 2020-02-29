@@ -6,10 +6,9 @@ use P4\Controller\ControllerChapter;
 use P4\Controller\ControllerUser;
 use P4\Gestion\Gestion;
 
-require_once('controller/controllerChapter.php');
-require_once('controller/controllerUser.php');
-require_once('gestion/Gestion.php');
-
+require('gestion/Autoloader.php');
+Autoloader::register();
+//echo realpath('index.php');
 
 try {
     if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo'])){
@@ -41,7 +40,7 @@ try {
                     $controller_chapter->chapterList();
                 }
 
-                elseif($_GET["action"] === "forAddChapter" || $_GET['action'] === "addChapter" || $_GET['action'] === "addChapter" || $_GET['action'] === "updateChapter" || $_GET['action'] === "deleteChapter" &&
+                elseif($_GET["action"] === "forAddChapter" || $_GET['action'] === "addChapter" || $_GET['action'] === "forUpdateChapter" || $_GET['action'] === "updateChapter" || $_GET['action'] === "deleteChapter" &&
                     isset($_SESSION['admin']) && $_SESSION['admin'] === "1"){
 
                     if($_GET['action'] === "forAddChapter"){
@@ -50,7 +49,7 @@ try {
                     elseif($_GET['action'] === "addChapter"){
                         $controller_chapter->registerChapter(htmlspecialchars($_POST['chapter_name']), htmlspecialchars($_POST['chapter_number']), $_POST['chapter_content']);
                     }
-                    elseif($_GET['action'] === "addChapter"){
+                    elseif($_GET['action'] === "forUpdateChapter"){
                         $controller_chapter->forUpdateChapter($_GET['idChapter']);
                     }
                     elseif($_GET['action'] === "updateChapter"){

@@ -1,9 +1,9 @@
 <?php
 namespace P4\Model;
 
-require_once('BDD.php');
+//require_once('ManagementBDD.php');
 
-class ManagementChapter extends BDD{
+class ManagementChapter extends ManagementBDD{
 
     public function chapterLists(){
         $posts = $this->_bd->query('SELECT * FROM chapters ORDER BY id DESC');

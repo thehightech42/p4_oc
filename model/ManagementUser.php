@@ -2,9 +2,9 @@
 
 namespace P4\Model;
 
-require_once('BDD.php');
+require_once('ManagementBDD.php');
 
-class ManagementUser extends BDD{
+class ManagementUser extends ManagementBDD{
 
 
     public function tryPseudo($pseudo){
