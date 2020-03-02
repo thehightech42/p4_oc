@@ -14,7 +14,6 @@ class ManagementChapter extends ManagementBDD{
         $post = $this->_bd->prepare('SELECT * FROM chapters WHERE id = :id');
         $post->execute(array('id' => $id));
         return $post;
-
     }
 
     public function comments($id){

@@ -11,8 +11,9 @@ Autoloader::register();
 //echo realpath('index.php');
 
 try {
-    if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo'])){
-        $controllerUser = new ControllerUser;
+    $controllerUser = new ControllerUser;
+
+    if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo']) && isset($_GET['type']) && $_GET['type'] != 'end'){
         $controllerUser->singIn($_COOKIE['pseudo'], $_COOKIE['password']);
     }
         if(isset($_GET['type']) && isset($_GET['action'])){

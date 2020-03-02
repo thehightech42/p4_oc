@@ -19,7 +19,9 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     </head>
 
     <body style="height:100vh">
-
+    <?php if(!isset($_SESSION['COOKIE'])){
+        require('view/modalCookie.php');
+    }?>
     <div class="container-fluid h-100 p-0 <?php if($admin == 1){?> m-0<?php }?>">
         <?php include('view/nav.php');?>
 
@@ -54,8 +56,17 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     </div>
 
 
+    <div class="container m-0 p-0">
+        <div class="row m-0 p-0">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cookieModal" aria-checked="true">
+                    Gestion Cookie
+                </button>
+            </div>
 
+        </div>
 
+    </div>
 
 
     <!--Script Bootstrap-->

@@ -13,15 +13,15 @@ class Autoloader{
        $gestion = strpos($class, 'Gestion');
 
        if($controller !== FALSE){
-           $class = str_replace('P4\Controller', 'controller', $class);
+           $class = str_replace('P4\Controller\\', 'controller/', $class);
            require($class.".php");
        }
        elseif($model !== FALSE){
-           $class = str_replace('P4\Model', 'model', $class);
+           $class = str_replace('P4\Model\\', 'model/', $class);
            require($class.".php");
        }
        elseif ($gestion !== FALSE){
-           $class = str_replace('P4\Gestion', 'gestion', $class);
+           $class = str_replace('P4\Gestion\\', 'gestion/', $class);
            require($class.".php");
 
        }

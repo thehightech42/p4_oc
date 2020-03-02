@@ -68,9 +68,6 @@ class ControllerUser{
             $_SESSION['last_name'] = $informationsLogin['last_name'];
 
             setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
-            setcookie('admin', $informationsLogin['admin'], time() + 365*24*3600, null, null, false, true);
-            setcookie('first_name', $informationsLogin['first_name'], time() + 365*24*3600, null, null, false, true);
-            setcookie('last_name', $informationsLogin['last_name'], time() + 365*24*3600, null, null, false, true);
             setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);
 
 
@@ -86,11 +83,15 @@ class ControllerUser{
 
     public function endSession(){
         session_destroy();
-        setcookie("pseudo", '', time());
-        setcookie("password", '', time());
+        setcookie('pseudo','',$_SERVER['REQUEST_TIME'] - 86400*60,'/');
+        setcookie('pseudo','',$_SERVER['REQUEST_TIME'] - 86400*60,'/');
 
-        header('Location: index.php');
+        header('Location: index.php?type=end');
+    }
 
+    public function checkCookies(){
+        $modal = require('view/modalCookie.php');
+        return $modal;
     }
 
 }
