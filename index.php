@@ -6,16 +6,20 @@ use P4\Controller\ControllerChapter;
 use P4\Controller\ControllerUser;
 use P4\Gestion\Gestion;
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 require('gestion/Autoloader.php');
 Autoloader::register();
 //echo realpath('index.php');
 
 try {
-    $controllerUser = new ControllerUser;
-
-    if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo']) && isset($_GET['type']) && $_GET['type'] != 'end'){
+    //$controllerUser = new ControllerUser;
+    /*if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo']) && isset($_GET['info']) && $_GET['info'] != 'end'){
         $controllerUser->singIn($_COOKIE['pseudo'], $_COOKIE['password']);
-    }
+    }*/
+
+
         if(isset($_GET['type']) && isset($_GET['action'])){
 
             if($_GET['type'] === "chapter"){
@@ -113,11 +117,19 @@ try {
                 elseif($_GET['action'] === "singIn"){
                     $controllerUser->singIn(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['password']));
                 }
+                elseif($_GET['action'] === "forManageAccount"){
+                    $controllerUser->forManageAccount($_SESSION['pseudo']);
+                }
+                elseif($_GET['action'] === "ManageAccount"){
+                    $controllerUser->manageAccount(htmlspecialchars($_POST['first_name']),htmlspecialchars($_POST['last_name']),
+                        htmlspecialchars($_POST['user_pseudo']),htmlspecialchars($_POST['user_mail']), htmlspecialchars($_POST['last_password']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['password1']));
+                }
                 else{
                     $controllerUser->addUser();
                 }
 
             }
+
 
             elseif($_GET['type'] === "test" && $_GET['action'] === "hash"){
                 require('view/hash.php');
@@ -127,10 +139,13 @@ try {
             }
             else{
                 $controller_chapter = new ControllerChapter;
-                var_dump("Test - 4");
                 $controller_chapter->chapterList();
             }
 
+        }
+        elseif(isset($_GET['type']) && $_GET['type'] === "administration"){
+            $controller_chapter = new ControllerChapter;
+            $controller_chapter->administrationPage();
         }
 
         else{

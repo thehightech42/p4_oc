@@ -15,11 +15,7 @@ use P4\Model\ManagementChapter;
 
         public function chapterList(){
             $chapters = $this->_managementChapter->chapterLists();
-            if($chapters === false){
-                throw new \Exception("Connexion bd, code erreur : " . $e->errorCode());
-            }else{
-                require('view/viewChapterList.php');
-            }
+            require('view/viewChapterList.php');
 
         }
 
@@ -34,13 +30,25 @@ use P4\Model\ManagementChapter;
             }
 
         }
-        public function addChapter(){
+        public function addChapter($informationChapter = []){
             require('view/viewAddChapter.php');
         }
-        public function registerChapter($chapter_name, $chapter_number, $chapter_content){
-            $registerChapter = $this->_managementChapter->registerChapter($chapter_name, $chapter_number, $chapter_content);
 
-            $this->chapterList();
+        public function registerChapter($chapter_name, $chapter_number, $chapter_content){
+            $numberChapterExist = $this->_managementChapter->tryNumberChapter($chapter_number);
+            $exist = $numberChapterExist->rowCount();
+
+            if($exist !== 0 ){
+                $informationChapter = [
+                    "chapter_name"=>$chapter_name,
+                    "chapter_content"=>$chapter_content
+                ];
+                $echecAddChapter = $this->addChapter($informationChapter);
+            }else{
+                $registerChapter = $this->_managementChapter->registerChapter($chapter_name, $chapter_number, $chapter_content);
+
+                $this->chapterList();
+            }
         }
 
         public function forUpdateChapter($idChapter){
@@ -85,6 +93,14 @@ use P4\Model\ManagementChapter;
             $deleteComment = $this->_managementChapter->deleteComment($idComment);
 
             $this->commentsManagement();
+        }
+
+        public function administrationPage(){
+            $commentsReport = $this->_managementChapter->commentsManagement();
+            $chapters = $this->_managementChapter->chapterLists();
+            $tenLastComments = $this->_managementChapter->tenLastComments();
+
+            require('view/viewAdministration.php');
         }
 
     }

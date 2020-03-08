@@ -9,10 +9,25 @@ class ManagementBDD {
     {
         $this->_bd = $this->AccesBDD();
 
+
     }
 
     private function AccesBDD(){
-        $bd = new \PDO('mysql:host=localhost:8889;dbname=projet4;charset=utf8', 'root', 'root');
+        require('env.php');
+        $bd = new \PDO('mysql:host='.$domaineBDD.';dbname='.$BDDName.';charset=utf8', ''.$username.'', ''.$password.'');
+
+
+        /*
+        if(!is_object($bd)){
+            throw new \Exception('Erreur de connexion à la BDD, merci de contacter l\'administrateur ou de vous reconnecter plus tard.');
+           // die('Erreur de connexion à la BDD, merci de contacter l\'administrateur ou de vous reconnecter plus tard .');
+        }*/
+
+        try{
+            $bd = new \PDO('mysql:host='.$domaineBDD.';dbname='.$BDDName.';charset=utf8', ''.$username.'', ''.$password.'');
+        }catch (\Exception $e){
+            throw new \Exception('Erreur de connexion à la BDD, merci de contacter l\'administrateur ou de vous reconnecter plus tard.');
+        }
         return $bd;
 
 

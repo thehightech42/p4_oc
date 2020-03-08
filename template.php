@@ -10,20 +10,40 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
 <html lang="fr">
 
     <head>
-        <meta charset="utf-8">
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="<?= $titlePage ?>"/>
+        <meta name="twitter:description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
+        <meta name="twitter:image" content="../img-car/Logo-JD.v1-Carre.png" />
+
+        <meta property="og:title" content="<?= $titlePage ?>"/>
+        <meta property="og:description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
+        <meta property="og:type" content="Livre en ligne"/>
+        <meta property="og:url" content="http://p4.antoninpfistner.fr"/>
+        <meta property="og:image" content="../img-car/Logo-JD.v1-Carre.png"/>
+
+        <meta name="title" content="<?= $titlePage ?>"/>
+        <meta name="description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
+        <meta name="url" content="http://p4.antoninpfistner.fr"/>
+        <meta name="image" content="../img-car/Logo-JD.v1-Carre.png"/>
+
+
+        <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> <?= $titlePage; ?> </title>
+        <link href="style.css" rel="stylesheet">
 
         <!--CSS Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
-    <body style="height:100vh">
-    <?php if(!isset($_SESSION['COOKIE'])){
-        require('view/modalCookie.php');
-    }?>
-    <div class="container-fluid h-100 p-0 <?php if($admin == 1){?> m-0<?php }?>">
-        <?php include('view/nav.php');?>
+    <body style="height: 100vh">
+    <div class="container-fluid p-0<?php if($admin == 1){?> m-0<?php }?>">
+        <div class="row m-0 p-0">
+            <div class="col-lg-12 p-0">
+                <?php include('view/nav.php');?>
+            </div>
+        </div>
+
 
         <?php if(!isset($_GET['type']) || $_GET['type'] === "home"){ ?>
             <div class="row m-0 p-0">
@@ -34,39 +54,41 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
 
             <?php
 
-        }else{
-                ?>
-                <div class="row h-100">
-                <?php
-                if($admin === 1){
-                    ?>
-                    <div class="col-lg-2">
-                        <?php include('view/viewNavAdmin.php');?>
-                    </div>
-                <?php
-                }
-                ?>
-                    <div class="col-lg-8 col-lg-offset-2 m-2 p-3<?php if($admin == 0){?> mx-auto <?php }?>">
-                        <?= $content ; ?>
-                    </div>
+        }elseif($_GET['type'] === 'administration'){
+            ?>
+            <div class="row h-100 m-0">
+                <div class="col-lg-10 mx-auto">
+                    <?= $content ?>
+                </div>
             </div>
             <?php
-        }?>
-
-    </div>
-
-
-    <div class="container m-0 p-0">
-        <div class="row m-0 p-0">
-            <div class="col-lg-12">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cookieModal" aria-checked="true">
-                    Gestion Cookie
-                </button>
+        }
+        else{
+            ?>
+            <div class="row h-100 m-0">
+                <div class="col-lg-8 mx-auto">
+                    <?= $content ?>
+                </div>
             </div>
+            <?php
+        }
 
-        </div>
+
+        if(!isset($_COOKIE['info-cookie']) || $_COOKIE['info-cookie'] !== "YES"){
+            ?>
+            <div class="row fixed-bottom pl-5 pr-5 pb-1 pt-2" id="info-cookie">
+                <div class="col-lg-12 bloc-cookie align-items-center">
+                    <p class="text-cookie ">Pour améliorer l'expérience utilisateur, ce site à recours a l'utilisation de cookie. Aucune données ne sont vendus</p> <button id="button-cookie">Ok</button>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
 
     </div>
+
+
+
 
 
     <!--Script Bootstrap-->
@@ -79,6 +101,15 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Autre script-->
+    <?php
+    if(!isset($_COOKIE['info-cookie']) || $_COOKIE['info-cookie'] !== "YES") {
+        ?>
+        <script src="js/gestion.js"></script>
+        <?php
+        }
+    ?>
 
     </body>
 

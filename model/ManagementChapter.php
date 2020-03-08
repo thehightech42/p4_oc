@@ -22,6 +22,12 @@ class ManagementChapter extends ManagementBDD{
         return $comments;
     }
 
+    public function tryNumberChapter($chapter_number){
+        $number = $this->_bd->prepare('SELECT * FROM chapters WHERE chapter_number = :chapter_number');
+        $number->execute(array('chapter_number'=> $chapter_number));
+        return $number;
+    }
+
     public function registerChapter($chapter_name, $chapter_number, $chapter_content){
         $registerChapter = $this->_bd->prepare('INSERT INTO chapters(chapter_name, chapter_number, chapter_content) VALUES(:chapter_name, :chapter_number, :chapter_content)');
         $registerChapter->execute(array(
@@ -71,7 +77,7 @@ class ManagementChapter extends ManagementBDD{
     }
 
     public function commentsManagement(){
-        $commentsManagement = $this->_bd->query('SELECT * FROM comments WHERE status_of_comment = 1');
+        $commentsManagement = $this->_bd->query('SELECT id, pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year FROM comments WHERE status_of_comment = 1');
         return $commentsManagement;
     }
 
@@ -83,6 +89,11 @@ class ManagementChapter extends ManagementBDD{
     public function deleteComment($idComment){
         $deteComment = $this->_bd->prepare('DELETE FROM comments WHERE id = :idComment');
         $deteComment->execute(array('idComment' => $idComment));
+    }
+
+    public function tenLastComments(){
+        $comments = $this->_bd->query('SELECT pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year  FROM comments');
+        return $comments;
     }
 
 

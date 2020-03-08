@@ -67,13 +67,13 @@ class ControllerUser{
             $_SESSION['first_name'] = $informationsLogin['first_name'];
             $_SESSION['last_name'] = $informationsLogin['last_name'];
 
-            setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
-            setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);
+            /*setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
+            setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);*/
 
+            header('Location: index.php');
 
-            header('Location: index.php?info=connexion-ok');
         }else{
-            header('Location: index.php?type=user&action=forSingIn&info=echec');
+           $this->forSingIn();
         }
     }
 
@@ -83,15 +83,27 @@ class ControllerUser{
 
     public function endSession(){
         session_destroy();
-        setcookie('pseudo','',$_SERVER['REQUEST_TIME'] - 86400*60,'/');
-        setcookie('pseudo','',$_SERVER['REQUEST_TIME'] - 86400*60,'/');
+        /*setcookie('pseudo');
+        setcookie('password');
+        unset($_COOKIE['pseudo']);
+        unset($_COOKIE['password']);*/
 
-        header('Location: index.php?type=end');
+        header('Location: index.php?type=home&info=end');
     }
 
-    public function checkCookies(){
-        $modal = require('view/modalCookie.php');
-        return $modal;
+    public function forManageAccount($pseudo){
+        $reqInformations = $this->_managementUser->takeLoginInformation($pseudo);
+        $userInformation = $reqInformations->fetch();
+
+        require('view/viewRegistration.php');
+
+
+    }
+
+    public function manageAccount($first_name, $last_name, $pseudo, $mail, $last_password, $password, $password1){
+
+
+
     }
 
 }

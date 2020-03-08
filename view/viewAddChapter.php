@@ -53,6 +53,10 @@ if($_GET['action'] === 'updateChapter'){
                    ?>
                    value="<?= $upChapter['chapter_name']?>"
                    <?php
+               }elseif(isset($informationChapter['chapter_name'])){
+                   ?>
+                   value="<?= $informationChapter['chapter_name']?>"
+                <?php
                }
                ?>
                required>
@@ -76,6 +80,8 @@ if($_GET['action'] === 'updateChapter'){
                 <?php
                 if(isset($upChapter['chapter_content'])){
                     echo $upChapter['chapter_content'];
+                }elseif(isset($informationChapter['chapter_content'])){
+                    echo $informationChapter['chapter_name'];
                 }
                 ?>
             </textarea>

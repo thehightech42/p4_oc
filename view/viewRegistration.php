@@ -3,25 +3,42 @@
 $titlePage = "Inscription";
 ob_start();
 
-?>
-<div class="row">
-    <div class="col-lg-10 mx-auto">
-        <h3>Pourquoi s'inscrire ?</h3>
-        <ul>
-            <li>Pour commenter les chapitres</li>
-            <li>Pour participer à la modération des commentaires</li>
-            <li>Pour être informer des prochains chapitres</li>
-        </ul>
+if(!isset($userInformation)){
+    ?>
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h3>Pourquoi s'inscrire ?</h3>
+            <ul>
+                <li>Pour commenter les chapitres</li>
+                <li>Pour participer à la modération des commentaires</li>
+                <li>Pour être informer des prochains chapitres</li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div class="row">
+    <div class="row">
 
-    <div class="col-lg-10 mx-auto">
-        <h3>
-            Inscription :
-        </h3>
+        <div class="col-lg-10 mx-auto">
+            <h3>
+                Inscription :
+            </h3>
+    <?php
+    }
+    else{
+     ?>
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h3>Gestion de votre compte</h3>
+        </div>
+    </div>
 
+    <div class="row">
+
+        <div class="col-lg-10 mx-auto">
+
+   <?php
+    }
+    ?>
         <form action="index.php?type=user&action=registration" method="POST">
             <div class="form-group">
                 <label for="first_name">Prenom :</label>
@@ -90,9 +107,19 @@ ob_start();
                 required>
                 <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail !</small>
             </div>
+            <?php
+                if(isset($userInformation)){
+                    ?>
+                    <div class="form-group">
+                        <label for="password">Ancien Mot de passe :</label>
+                        <input type="password" class="form-control" id="password" name="last_password" placeholder="Mot de passe" required>
+                    </div>
+                    <?php
+                }
+            ?>
 
             <div class="form-group">
-                <label for="password">Mot de passe :</label>
+                <label for="password">Nouveau Mot de passe :</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="form-group">
@@ -102,7 +129,14 @@ ob_start();
 
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
-        <p>Vous avez un compte ? <a href="index.php?type=user&action=forSingIn"> Connectez vous ici !</a></p>
+
+        <?php
+            if(!isset($userInformation)){
+                ?>
+                <p>Vous avez un compte ? <a href="index.php?type=user&action=forSingIn"> Connectez vous ici !</a></p>
+                <?php
+            }
+        ?>
     </div>
 </div>
 
