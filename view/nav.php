@@ -34,11 +34,12 @@
             if(isset($_SESSION['pseudo'])){
                 ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $_SESSION['pseudo'];?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?type=user&action=forManageAccount">Gestion du compte</a>
+                        <a class="dropdown-item" href="index.php?type=user&action=forUpdatePassword">Changer le mot de passe</a>
                     </div>
                 </li>
                 <li class="nav-item">

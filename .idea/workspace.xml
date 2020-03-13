@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c49a44c-7d44-461f-b61b-68989f4e356f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/gestion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/viewAdministration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redirect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/viewManageAccount.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/viewUpdatePassword.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerChapter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion/Autoloader.php" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/Autoloader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ManagementBDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementBDD.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ManagementChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementChapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ManagementUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/modalCookie.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewAddChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewAddChapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewChapterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewHome.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewRegistration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewSingIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewSingIn.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,9 +73,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P4\p4_oc" />
       <recent name="C:\wamp64\www\P4\p4_oc\js" />
       <recent name="C:\wamp64\www\P4\p4_oc\class" />
-      <recent name="C:\wamp64\www\P4\p4_oc" />
       <recent name="C:\wamp64\www\P4\p4_oc\img" />
       <recent name="C:\wamp64\www\P4\p4_oc\view" />
     </key>
@@ -100,7 +95,10 @@
       <workItem from="1582160207115" duration="4466000" />
       <workItem from="1582207259776" duration="82990000" />
       <workItem from="1582753484049" duration="23934000" />
-      <workItem from="1583418919897" duration="63007000" />
+      <workItem from="1583418919897" duration="63767000" />
+      <workItem from="1583755092637" duration="31983000" />
+      <workItem from="1583862332533" duration="5884000" />
+      <workItem from="1583937566714" duration="25108000" />
     </task>
     <servers />
   </component>
@@ -138,12 +136,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582387895798" />
-    <state x="591" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1583419318891">
+    <state x="591" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1583937609503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1581043822113" />
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1581112486337" />
-    <state x="591" y="354" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583419318891" />
+    <state x="591" y="354" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583937609503" />
     <state x="828" y="431" key="com.jetbrains.php.framework.generators.custom.CustomFrameworkDialog" timestamp="1582216853986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

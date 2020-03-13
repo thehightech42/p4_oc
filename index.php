@@ -1,29 +1,21 @@
 <!--Routeur of website-->
 <?php
 session_start();
-
 use P4\Controller\ControllerChapter;
 use P4\Controller\ControllerUser;
 use P4\Gestion\Gestion;
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
 require('gestion/Autoloader.php');
 Autoloader::register();
 //echo realpath('index.php');
-
 try {
     //$controllerUser = new ControllerUser;
     /*if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo']) && isset($_GET['info']) && $_GET['info'] != 'end'){
         $controllerUser->singIn($_COOKIE['pseudo'], $_COOKIE['password']);
     }*/
-
-
         if(isset($_GET['type']) && isset($_GET['action'])){
-
             if($_GET['type'] === "chapter"){
-
                 if(isset($_GET['idComment']) || isset($_GET['idChapter'])){
                     $gestion = new gestion;
                     if(isset($_GET['idComment'])){
@@ -36,7 +28,6 @@ try {
                         header('Location: index.php');
                     }
                 }
-
                 $controller_chapter = new ControllerChapter;
                 if($_GET['action'] === 'chapter'){
                     $controller_chapter->chapterAndComments($_GET['idChapter']);
@@ -44,10 +35,8 @@ try {
                 elseif($_GET['action'] === "chapterList"){
                     $controller_chapter->chapterList();
                 }
-
                 elseif($_GET["action"] === "forAddChapter" || $_GET['action'] === "addChapter" || $_GET['action'] === "forUpdateChapter" || $_GET['action'] === "updateChapter" || $_GET['action'] === "deleteChapter" &&
                     isset($_SESSION['admin']) && $_SESSION['admin'] === "1"){
-
                     if($_GET['action'] === "forAddChapter"){
                         $controller_chapter->addChapter();
                     }
@@ -66,16 +55,12 @@ try {
                         $controller_chapter->chapterList();
                     }
                 }
-
-
                 elseif($_GET['action'] === "addComment"){
                     $controller_chapter->addComment($_GET['idChapter'], htmlspecialchars($_POST['content']));
-
                 }
                 elseif($_GET['action'] === "reportComment"){
                     $controller_chapter->reportComment($_GET['idComment'], $_GET['idChapter']);
                 }
-
                 elseif ($_GET['action'] === "commentsManagement" || $_GET['action'] === "acceptComment" || $_GET['action'] === "deleteComment" && isset($_SESSION['admin']) && $_SESSION['admin'] === "1"){
                     if($_GET['action'] === "commentsManagement"){
                         $controller_chapter->commentsManagement();
@@ -91,14 +76,10 @@ try {
                         //header('Location: index.php');
                     }
                 }
-
                 else{
                     $controller_chapter->chapterList();
-
                 }
-
             }
-
             elseif($_GET['type'] === "user"){
                 $controllerUser = new ControllerUser();
                 if($_GET['action'] === 'add'){
@@ -118,19 +99,21 @@ try {
                     $controllerUser->singIn(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['password']));
                 }
                 elseif($_GET['action'] === "forManageAccount"){
-                    $controllerUser->forManageAccount($_SESSION['pseudo']);
+                    $controllerUser->forManageAccount($_SESSION['idUser']);
                 }
-                elseif($_GET['action'] === "ManageAccount"){
-                    $controllerUser->manageAccount(htmlspecialchars($_POST['first_name']),htmlspecialchars($_POST['last_name']),
-                        htmlspecialchars($_POST['user_pseudo']),htmlspecialchars($_POST['user_mail']), htmlspecialchars($_POST['last_password']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['password1']));
+                elseif($_GET['action'] === "manageAccount"){
+                    $controllerUser->manageAccount(htmlspecialchars($_POST['first_name']),htmlspecialchars($_POST['last_name']), htmlspecialchars($_POST['user_pseudo']),htmlspecialchars($_POST['user_mail']));
+                }
+                elseif($_GET['action'] === "forUpdatePassword"){
+                    $controllerUser->forUpdatePassword();
+                }
+                elseif($_GET['action'] === "updatePassword"){
+                    $controllerUser->updatePassword(htmlspecialchars($_POST['last_password']), htmlspecialchars($_POST['new_password']), htmlspecialchars($_POST['new_password1']) );
                 }
                 else{
                     $controllerUser->addUser();
                 }
-
             }
-
-
             elseif($_GET['type'] === "test" && $_GET['action'] === "hash"){
                 require('view/hash.php');
             }
@@ -141,17 +124,14 @@ try {
                 $controller_chapter = new ControllerChapter;
                 $controller_chapter->chapterList();
             }
-
         }
         elseif(isset($_GET['type']) && $_GET['type'] === "administration"){
             $controller_chapter = new ControllerChapter;
             $controller_chapter->administrationPage();
         }
-
         else{
             require('view/viewHome.php');
         }
-
 }
 catch(Exception $e) {
     die ('Erreur : ' . $e->getMessage());

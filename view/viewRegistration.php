@@ -107,19 +107,9 @@ if(!isset($userInformation)){
                 required>
                 <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail !</small>
             </div>
-            <?php
-                if(isset($userInformation)){
-                    ?>
-                    <div class="form-group">
-                        <label for="password">Ancien Mot de passe :</label>
-                        <input type="password" class="form-control" id="password" name="last_password" placeholder="Mot de passe" required>
-                    </div>
-                    <?php
-                }
-            ?>
 
             <div class="form-group">
-                <label for="password">Nouveau Mot de passe :</label>
+                <label for="password">Mot de passe :</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="form-group">

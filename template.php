@@ -65,7 +65,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         }
         else{
             ?>
-            <div class="row h-100 m-0">
+            <div class="row h-100 mt-5 ml-0 mr-0">
                 <div class="col-lg-8 mx-auto">
                     <?= $content ?>
                 </div>
