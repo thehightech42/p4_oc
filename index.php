@@ -8,12 +8,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require('gestion/Autoloader.php');
 Autoloader::register();
-//echo realpath('index.php');
 try {
-    //$controllerUser = new ControllerUser;
-    /*if(isset($_COOKIE['pseudo']) && isset($_COOKIE['password']) && !isset($_SESSION['pseudo']) && isset($_GET['info']) && $_GET['info'] != 'end'){
-        $controllerUser->singIn($_COOKIE['pseudo'], $_COOKIE['password']);
-    }*/
         if(isset($_GET['type']) && isset($_GET['action'])){
             if($_GET['type'] === "chapter"){
                 if(isset($_GET['idComment']) || isset($_GET['idChapter'])){
@@ -73,7 +68,6 @@ try {
                     }
                     else{
                         $controller_chapter->chapterList();
-                        //header('Location: index.php');
                     }
                 }
                 else{
@@ -109,6 +103,12 @@ try {
                 }
                 elseif($_GET['action'] === "updatePassword"){
                     $controllerUser->updatePassword(htmlspecialchars($_POST['last_password']), htmlspecialchars($_POST['new_password']), htmlspecialchars($_POST['new_password1']) );
+                }
+                elseif($_GET['action'] === "forContact"){
+                    $controllerUser->forContact();
+                }
+                elseif($_GET['action'] === "contact"){
+                    $controllerUser->contact(htmlspecialchars($_POST['name']), htmlspecialchars($_POST['email']), htmlspecialchars($_POST['subject']), htmlspecialchars($_POST['message']));
                 }
                 else{
                     $controllerUser->addUser();

@@ -11,6 +11,7 @@ ob_start();
     </script>
 <?php
 $script = ob_get_clean();
+
 $titlePage = "Ajout d'un chapitre";
 
 ob_start();

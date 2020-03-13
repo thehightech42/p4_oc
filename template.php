@@ -27,7 +27,7 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         <meta name="image" content="../img-car/Logo-JD.v1-Carre.png"/>
 
 
-        <meta charset="utf-8"/>
+        <meta charset="utf-8 sans BOM∑"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> <?= $titlePage; ?> </title>
         <link href="style.css" rel="stylesheet">
@@ -86,10 +86,6 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         ?>
 
     </div>
-
-
-
-
 
     <!--Script Bootstrap-->
     <?php

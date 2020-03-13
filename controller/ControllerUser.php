@@ -1,6 +1,7 @@
 <?php
 namespace P4\Controller;
 use P4\Model\ManagementUser;
+ob_start();
 class ControllerUser{
     private $_managementUser;
     function __construct()
@@ -17,29 +18,26 @@ class ControllerUser{
             "pseudo" => $pseudo,
             "mail" => $mail
         ];
-        if(preg_match('#[-_\.a-zA-Z0-9]+@[-a-zA-Z0-9]+\.[a-z]+$#', $mail)){
-            if($password === $password1){
-                $tryPseudo = $this->_managementUser->tryPseudo($pseudo);
-                $tryMail = $this->_managementUser->tryMail($mail);
-                $reqTryPseudo = $tryPseudo->rowcount();
-                $reqTryMail = $tryMail->rowcount();
-                if($reqTryPseudo !== 0 || $reqTryMail !== 0){
-                    if($reqTryMail !== 0){
-                        unset($userInformation["mail"]);
-                    }
-                    if($reqTryPseudo !== 0){
-                        unset($userInformation["pseudo"]);
-                    }
-                    $this->addUser($userInformation);
-                }else{
-                    $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
-                    header('Location: index.php?type=user&action=forSingIn');
+        if($password === $password1){
+            $tryPseudo = $this->_managementUser->tryPseudo($pseudo);
+            $tryMail = $this->_managementUser->tryMail($mail);
+            $reqTryPseudo = $tryPseudo->rowcount();
+            $reqTryMail = $tryMail->rowcount();
+            if($reqTryPseudo !== 0 || $reqTryMail !== 0){
+                if($reqTryMail !== 0){
+                    unset($userInformation["mail"]);
                 }
-            }else{
+                if($reqTryPseudo !== 0){
+                    unset($userInformation["pseudo"]);
+                }
                 $this->addUser($userInformation);
+            }else{
+                $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
+                header("Status: 301 Move permanently", false, 301);
+                header('Location: index.php?type=user&action=forSingIn', false);
+                exit();
             }
         }else{
-            unset($userInformation["mail"]);
             $this->addUser($userInformation);
         }
     }
@@ -56,12 +54,13 @@ class ControllerUser{
             $_SESSION['last_name'] = $informationsLogin['last_name'];
             /*setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
             setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);*/
-            header('Location: index.php');
+            header('Location: index.php', TRUE);
         }else{
-           $this->forSingIn();
+           $this->forSingIn("echec");
         }
     }
-    public function forSingIn(){
+    public function forSingIn($information = 0){
+        $info = $information;
         require('view/viewSingIn.php');
     }
     public function endSession(){
@@ -70,11 +69,7 @@ class ControllerUser{
         setcookie('password');
         unset($_COOKIE['pseudo']);
         unset($_COOKIE['password']);*/
-        //ob_start();
         header('Location: index.php?type=home&info=end');
-        //$redirect = ob_get_clean();
-        //require('redirect.php');
-        //echo '<script>window.location.href="index.php?type=home&info=end"</script>';
     }
     public function forManageAccount($id){
         if(is_string($id)){
@@ -129,6 +124,7 @@ class ControllerUser{
             $_SESSION['last_name'] = $last_name;
 
             header('Location: index.php?type=chapter&action=chapterList');
+            exit;
         }
     }
     public function forUpdatePassword(){
@@ -150,6 +146,26 @@ class ControllerUser{
             require('view/viewUpdatePassword.php');
         }
     }
-}
+    public function forContact(){
+        require('view/viewContact.php');
+    }
 
-// regex mail [a-zA-Z0-9-_\.]+@[-a-zA-Z0-9]+\.[a-z]+$
+    public function contact($name, $mail, $subject, $message){
+        $entete  = 'MIME-Version: 1.0' . "\r\n";
+        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        $entete .= 'From: ' . $mail . "\r\n";
+
+        $message = '<h4>Message du site " Billet simple pour l\'Alaska ”</h4>
+        <p><b>Nom : </b>' . $name . '<br>
+        <b>Email : </b>' . $mail . '<br>
+        <b>Message : </b>' . $message . '</p>';
+
+        $retour = mail('antonin.pfistner@gmail.com', $subject, $message, $entete);
+        if($retour) {
+            echo '<p>Votre message a bien été envoyé.</p>';
+            $this->forContact();
+        }else{
+            $this->forContact();
+        }
+    }
+}

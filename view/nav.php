@@ -10,7 +10,7 @@
                 <a class="nav-link text-white" href="index.php?type=chapter&action=chapterList">Chapitres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="index.php?action=chapterList">Contact</a>
+                <a class="nav-link text-white" href="index.php?type=user&action=forContact">Contact</a>
             </li>
             <?php
                 if(isset($_SESSION['admin']) && $_SESSION['admin'] === "1"){
