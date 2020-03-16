@@ -3,13 +3,13 @@ namespace P4\Model;
 require_once('ManagementBDD.php');
 class ManagementUser extends ManagementBDD{
     public function tryPseudo($pseudo){
-        $reqPseudo = $this->_bd->prepare('SELECT * FROM users WHERE pseudo = :pseudo');
+        $reqPseudo = $this->_bd->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');
         $reqPseudo->execute(array('pseudo'=> $pseudo));
         return $reqPseudo;
 
     }
     public function tryMail($mail){
-        $reqMail = $this->_bd->prepare('SELECT * FROM users WHERE mail = :mail');
+        $reqMail = $this->_bd->prepare('SELECT mail FROM users WHERE mail = :mail');
         $reqMail->execute(array('mail'=> $mail));
         return $reqMail;
     }
@@ -34,7 +34,7 @@ class ManagementUser extends ManagementBDD{
         $userInfo->execute(array('id'=> $id));
         return $userInfo;
     }
-    public function updateUserInformation($first_name, $last_name, $pseudo, $mail){
+    public function updateAllUserInformation($first_name, $last_name, $pseudo, $mail){
         $updateUser = $this->_bd->prepare('UPDATE users SET first_name= :first_name, last_name= :last_name, pseudo= :pseudo, mail= :mail WHERE id = :id');
         $updateUser->execute(array(
             'first_name'=> $first_name,
@@ -42,6 +42,14 @@ class ManagementUser extends ManagementBDD{
             'pseudo'=> $pseudo,
             'mail'=> $mail,
             'id'=> $_SESSION['idUser']
+        ));
+    }
+    public function updateNamesUser($first_name, $last_name){
+        $updateName = $this->_bd->prepare('UPDATE users SET first_name= :first_name, last_name= :last_name WHERE id= :id');
+        $updateName->execute(array(
+            'first_name'=>$first_name,
+            'last_name'=>$last_name,
+            'id'=>$_SESSION['idUser']
         ));
     }
     public function updatePassword($pass_hash){

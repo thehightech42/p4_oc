@@ -27,17 +27,21 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         <meta name="image" content="../img-car/Logo-JD.v1-Carre.png"/>
 
 
-        <meta charset="utf-8 sans BOM∑"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <title> <?= $titlePage; ?> </title>
-        <link href="style.css" rel="stylesheet">
+        <!-- Style -->
+        <link href="style/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
 
         <!--CSS Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 
-    <body style="height: 100vh">
-    <div class="container-fluid p-0<?php if($admin == 1){?> m-0<?php }?>">
+    <body>
+    <div id="body-page" class="container-fluid p-0<?php if($admin == 1){?> m-0<?php }?>">
         <div class="row m-0 p-0">
             <div class="col-lg-12 p-0">
                 <?php include('view/nav.php');?>
@@ -56,8 +60,8 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
 
         }elseif($_GET['type'] === 'administration'){
             ?>
-            <div class="row h-100 m-0">
-                <div class="col-lg-10 mx-auto">
+            <div class="row m-0 mb-5 screen">
+                <div class="col-lg-11 mx-auto">
                     <?= $content ?>
                 </div>
             </div>
@@ -65,15 +69,19 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         }
         else{
             ?>
-            <div class="row h-100 mt-5 ml-0 mr-0">
+            <div class="row mt-5 ml-0 mr-0 mb-5 screen">
                 <div class="col-lg-8 mx-auto">
                     <?= $content ?>
                 </div>
             </div>
             <?php
         }
+        ?>
+        <footer>
+                <?php include('view/footer.php');;?>
+        </footer>
 
-
+        <?php
         if(!isset($_COOKIE['info-cookie']) || $_COOKIE['info-cookie'] !== "YES"){
             ?>
             <div class="row fixed-bottom pl-5 pr-5 pb-1 pt-2" id="info-cookie">
@@ -84,8 +92,8 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         <?php
         }
         ?>
-
     </div>
+
 
     <!--Script Bootstrap-->
     <?php

@@ -12,8 +12,8 @@ while($comment = $comments->fetch()){
 
         </div>
         <div class="col-lg-2">
-            <p><a href="index.php?type=chapter&action=acceptComment&idComment=<?= $comment['id']?>">Valider</a></p>
-            <p><a href="index.php?type=chapter&action=deleteComment&idComment=<?= $comment['id']?>">Supprimer définitvement</a></p>
+            <p><a href="/?type=chapter&action=acceptComment&idComment=<?= $comment['id']?>">Valider</a></p>
+            <p><a href="/?type=chapter&action=deleteComment&idComment=<?= $comment['id']?>">Supprimer définitvement</a></p>
         </div>
     </div>
     <?php

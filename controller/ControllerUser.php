@@ -34,14 +34,14 @@ class ControllerUser{
             }else{
                 $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
                 header("Status: 301 Move permanently", false, 301);
-                header('Location: index.php?type=user&action=forSingIn', false);
+                header('Location: /?type=user&action=forSingIn', true);
                 exit();
             }
         }else{
             $this->addUser($userInformation);
         }
     }
-    public function singIn($pseudo, $password){
+    public function sinIn($pseudo, $password){
         $reqInformations = $this->_managementUser->takeLoginInformation($pseudo);
         $informationsLogin = $reqInformations->fetch();
         $resultat = password_verify($password, $informationsLogin["pass_hash"]);
@@ -54,22 +54,17 @@ class ControllerUser{
             $_SESSION['last_name'] = $informationsLogin['last_name'];
             /*setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
             setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);*/
-            header('Location: index.php', TRUE);
+            header('Location: /', TRUE);
         }else{
-           $this->forSingIn("echec");
+           header('Location: /?type=user&action=forSinIn&info=echec');
         }
     }
-    public function forSingIn($information = 0){
-        $info = $information;
-        require('view/viewSingIn.php');
+    public function forSinIn(){
+        require('view/viewSinIn.php');
     }
     public function endSession(){
         session_destroy();
-        /*setcookie('pseudo');
-        setcookie('password');
-        unset($_COOKIE['pseudo']);
-        unset($_COOKIE['password']);*/
-        header('Location: index.php?type=home&info=end');
+        header('Location: /?type=home&info=end');
     }
     public function forManageAccount($id){
         if(is_string($id)){
@@ -79,7 +74,6 @@ class ControllerUser{
         }
         else{
             $userInformation = $id;
-            //var_dump($userInformation);
             require('view/viewManageAccount.php');
         }
     }
@@ -96,35 +90,22 @@ class ControllerUser{
         $testMail = $tryMail->rowCount();
         $resultMail = $tryMail->fetch();
         $resultPseudo = $tryPseudo->fetch();
-        var_dump($testPseudo, $testMail);
-        if($pseudo === $_SESSION["pseudo"] &&  $mail === $_SESSION["mail"])
-        {
-            $this->_managementUser->updateUserInformation($first_name, $last_name, $pseudo, $mail);
+        if($testPseudo === 0 || $pseudo === $_SESSION['pseudo'] && $testMail === 0 || $mail === $_SESSION['mail']){
+            $this->_managementUser->updateAllUserInformation($first_name, $last_name, $pseudo, $mail);
             $_SESSION['mail'] = $mail;
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['first_name'] = $first_name;
             $_SESSION['last_name'] = $last_name;
-            header('Location: index.php?type=chapter&action=chapterList');
-        }
-        elseif( ($pseudo !== $_SESSION["pseudo"] && $testPseudo !== 0) || ($mail !== $_SESSION["mail"] && $testMail !== 0) )
-        {
+            header('Location: /?type=chapter&action=chapterList');
+        }elseif ($testMail !== 0 || $testPseudo !== 0){
             if($testPseudo !== 0 && $pseudo !== $_SESSION["pseudo"]){
                 unset($tabUserInformation["pseudo"]);
             }
             if($testMail !== 0 && $mail !== $_SESSION["mail"]){
                 unset($tabUserInformation["mail"]);
             }
+            $this->_managementUser->updateNamesUser($first_name, $last_name);
             $this->forManageAccount($tabUserInformation);
-        }
-        else{
-            $this->_managementUser->updateUserInformation($first_name, $last_name, $pseudo, $mail);
-            $_SESSION['mail'] = $mail;
-            $_SESSION['pseudo'] = $pseudo;
-            $_SESSION['first_name'] = $first_name;
-            $_SESSION['last_name'] = $last_name;
-
-            header('Location: index.php?type=chapter&action=chapterList');
-            exit;
         }
     }
     public function forUpdatePassword(){
@@ -138,7 +119,7 @@ class ControllerUser{
             if($new_password === $new_password1){
                 $pass_hash = password_hash($new_password, PASSWORD_DEFAULT);
                 $methodPassHash = $this->_managementUser->updatePassword($pass_hash);
-                header('Location: index.php?type=chapter&action=chapterList');
+                header('Location: /?type=chapter&action=chapterList');
             }else{
                 require('view/viewUpdatePassword.php');
             }

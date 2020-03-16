@@ -1,10 +1,10 @@
 <?php
 
 $titlePage = "Inscription";
+$script = "<script src=\"js/gestion.js\"></script>";
 ob_start();
+?>
 
-if(!isset($userInformation)){
-    ?>
     <div class="row">
         <div class="col-lg-10 mx-auto">
             <h3>Pourquoi s'inscrire ?</h3>
@@ -17,29 +17,12 @@ if(!isset($userInformation)){
     </div>
 
     <div class="row">
-
         <div class="col-lg-10 mx-auto">
             <h3>
                 Inscription :
             </h3>
-    <?php
-    }
-    else{
-     ?>
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <h3>Gestion de votre compte</h3>
-        </div>
-    </div>
 
-    <div class="row">
-
-        <div class="col-lg-10 mx-auto">
-
-   <?php
-    }
-    ?>
-        <form action="index.php?type=user&action=registration" method="POST">
+        <form action="/?type=user&action=registration" method="POST">
             <div class="form-group">
                 <label for="first_name">Prenom :</label>
                 <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name ="first_name" placeholder="Prenom"
@@ -71,7 +54,7 @@ if(!isset($userInformation)){
                     <?php
                         if(!isset($userInformation['pseudo']) && isset($userInformation['first_name'])){
                             ?>
-                            border border-danger
+                            is-invalid
                             <?php
                         }
                     ?>
@@ -84,7 +67,10 @@ if(!isset($userInformation)){
                     }
                     ?>
                 required>
-                <small id="pseudoHelp" class="form-text text-muted">Il sera utilisé pour poster des messages et vous connecter.</small>
+                <div class="invalid-feedback">
+                    Pseudo déjà utilisé, merci d'en choisir un autre !
+                </div>
+                <small id="pseudoHelp" class="form-text text-muted">Il sera utilisé pour poster des commentaires et vous connecter.</small>
             </div>
             <div class="form-group">
                 <label for="email">Email :</label>
@@ -92,7 +78,7 @@ if(!isset($userInformation)){
                     <?php
                         if(!isset($userInformation['mail']) && isset($userInformation['first_name'])){
                             ?>
-                             border border-danger
+                             is-invalid
                              <?php
                         }
                     ?>
@@ -105,7 +91,11 @@ if(!isset($userInformation)){
                     }
                     ?>
                 required>
+                <div class="invalid-feedback">
+                    Email déjà utilisé, merci de choisir une autre adresse e-mail !
+                </div>
                 <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail !</small>
+
             </div>
 
             <div class="form-group">
@@ -115,15 +105,19 @@ if(!isset($userInformation)){
             <div class="form-group">
                 <label for="password1">Mot de passe de confirmation :</label>
                 <input type="password" class="form-control" id="password1" name="password1" placeholder="Mot de passe" required>
+                <div class="invalid-feedback">
+                    Les mot de passe ne sont pas identique !
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+
+            <button type="submit" class="btn btn-primary" id="buttonOfRegistration">Envoyer</button>
         </form>
 
         <?php
             if(!isset($userInformation)){
                 ?>
-                <p>Vous avez un compte ? <a href="index.php?type=user&action=forSingIn"> Connectez vous ici !</a></p>
+                <p>Vous avez un compte ? <a href="/?type=user&action=forSingIn"> Connectez vous ici !</a></p>
                 <?php
             }
         ?>

@@ -17,7 +17,7 @@ class ManagementChapter extends ManagementBDD{
     }
 
     public function comments($id){
-        $comments = $this->_bd->prepare('SELECT * FROM comments WHERE id_post = :id_post AND status_of_comment = 0');
+        $comments = $this->_bd->prepare('SELECT id, pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year FROM comments WHERE id_post = :id_post AND status_of_comment = 0');
         $comments->execute(array('id_post' => $id));
         return $comments;
     }
@@ -92,7 +92,7 @@ class ManagementChapter extends ManagementBDD{
     }
 
     public function tenLastComments(){
-        $comments = $this->_bd->query('SELECT pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year  FROM comments');
+        $comments = $this->_bd->query('SELECT pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year  FROM comments LIMIT 10');
         return $comments;
     }
 

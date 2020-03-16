@@ -12,16 +12,17 @@ $gestion = new Gestion;
     while($chapter = $chapters->fetch()){
 
     ?>
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-3">
         <div class="col-lg-12">
 
             <h4>Chapitre <?= $chapter['chapter_number'] .' - '. $chapter['chapter_name']?></h4>
             <?php $text = $gestion->reductionText($chapter['chapter_content'], 500); ?>
-            <p><a href="index.php?type=chapter&action=chapter&idChapter=<?= $chapter['id']?>"><?= $text ?></a></p>
+            <p class="mb-0"><a href="/?type=chapter&action=chapter&idChapter=<?= $chapter['id']?>"><?= $text ?></a></p>
 
         </div>
 
     </div>
+        <hr>
 
     <?php
     };

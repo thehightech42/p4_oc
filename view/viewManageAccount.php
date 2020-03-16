@@ -8,7 +8,7 @@ ob_start();
         <div class="col-lg-12">
             <h4>Gestion du compte</h4>
 
-            <form action="index.php?type=user&action=manageAccount" method="POST">
+            <form action="/?type=user&action=manageAccount" method="POST">
 
                 <div class="form-group">
                     <label for="first_name">Prenom :</label>

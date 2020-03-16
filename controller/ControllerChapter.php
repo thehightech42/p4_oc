@@ -1,8 +1,6 @@
 <?php
 namespace P4\Controller;
-
 use P4\Model\ManagementChapter;
-
 
     class ControllerChapter{ //Chapter controller
 
@@ -86,13 +84,13 @@ use P4\Model\ManagementChapter;
         public function acceptComment($idComment){
             $acceptComment = $this->_managementChapter->acceptComment($idComment);
 
-            $this->commentsManagement();
+            header('Location: /?type=administration');
         }
 
         public function deleteComment($idComment){
             $deleteComment = $this->_managementChapter->deleteComment($idComment);
 
-            $this->commentsManagement();
+            header('Location: /?type=administration');
         }
 
         public function administrationPage(){

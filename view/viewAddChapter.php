@@ -15,33 +15,33 @@ $script = ob_get_clean();
 $titlePage = "Ajout d'un chapitre";
 
 ob_start();
-if($_GET['action'] === 'updateChapter'){
+if($_GET['action'] === 'forUpdateChapter'){
     ?>
     <h4>Mise à jour de chapitre</h4>
     <?php
 }else{
     ?>
     <h4>Ajout de chapitre</h4>
-    <p>Pour ajouter un chapitre, il suffit :</p>
+    <p>Pour ajouter un chapitre, il suffit de :</p>
     <?php
 }
 ?>
 <ol>
     <li>Donner un nom au chapitre.</li>
-    <li>Donner une numéro au chapitre.</li>
-    <li>Remplir le contenu du chapitre dans l'interface prevu à cette effet.</li>
+    <li>Donner un numéro au chapitre.</li>
+    <li>Remplir le contenu du chapitre dans l'interface prévue à cet effet.</li>
 </ol>
-<p>Les chapitres restes modifiables après publications.</p>
+<p>Les chapitres restent modifiables après publication.</p>
 
     <form
             <?php
             if(isset($_GET['type']) && isset($_GET['action']) && $_GET['action'] == "forUpdateChapter"){
                 ?>
-                action="index.php?type=chapter&action=updateChapter&idChapter=<?=$_GET['idChapter']?>"
+                action="/?type=chapter&action=updateChapter&idChapter=<?=$_GET['idChapter']?>"
                 <?php
             }else{
                 ?>
-                action="index.php?type=chapter&action=addChapter"
+                action="/?type=chapter&action=addChapter"
                 <?php
             }
             ?>
@@ -73,6 +73,8 @@ if($_GET['action'] === 'updateChapter'){
                 <?php
             }
             ?>
+          >
+          <small id="chapterNumberHelp" class="form-text text-muted">Le numéro de chapitre est un numéro unique, utilisé pour le classement des chapitres.</small>
       </div>
 
         <div class="form-group">

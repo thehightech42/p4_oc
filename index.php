@@ -1,5 +1,5 @@
-<!--Routeur of website-->
 <?php
+ob_start();
 session_start();
 use P4\Controller\ControllerChapter;
 use P4\Controller\ControllerUser;
@@ -20,9 +20,10 @@ try {
                         $test = $gestion->controlNumber($_GET['idChapter']);
                     }
                     if(!$test){
-                        header('Location: index.php');
+                        header('Location: '.$_SERVER['SERVER_NAME']);
                     }
                 }
+
                 $controller_chapter = new ControllerChapter;
                 if($_GET['action'] === 'chapter'){
                     $controller_chapter->chapterAndComments($_GET['idChapter']);
@@ -74,6 +75,7 @@ try {
                     $controller_chapter->chapterList();
                 }
             }
+
             elseif($_GET['type'] === "user"){
                 $controllerUser = new ControllerUser();
                 if($_GET['action'] === 'add'){
@@ -86,11 +88,11 @@ try {
                 elseif($_GET['action'] === "endSession"){
                     $controllerUser->endSession();
                 }
-                elseif($_GET['action'] === "forSingIn"){
-                    $controllerUser->forSingIn();
+                elseif($_GET['action'] === "forSinIn"){
+                    $controllerUser->forSinIn();
                 }
-                elseif($_GET['action'] === "singIn"){
-                    $controllerUser->singIn(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['password']));
+                elseif($_GET['action'] === "sinIn"){
+                    $controllerUser->sinIn(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['password']));
                 }
                 elseif($_GET['action'] === "forManageAccount"){
                     $controllerUser->forManageAccount($_SESSION['idUser']);
