@@ -1,4 +1,5 @@
 <?php
+require('env.php');
 $titlePage = "Administration";
 ob_start();
 ?>
@@ -27,8 +28,8 @@ ob_start();
                             </div>
 
                             <div class="col-lg-1 p-0">
-                                <p class="mb-1"><a href="/?type=chapter&action=acceptComment&idComment=<?= $commentReport['id']?>"><i class="fas fa-check"></i></i></a></p>
-                                <p class="mb-1"><a href="/?type=chapter&action=deleteComment&idComment=<?= $commentReport['id']?>"><i class="fas fa-trash-alt"></i></a></p>
+                                <p class="mb-1"><a href="<?= $DOMAINE ?>?type=chapter&action=acceptComment&idComment=<?= $commentReport['id']?>"><i class="fas fa-check"></i></i></a></p>
+                                <p class="mb-1"><a href="<?= $DOMAINE ?>?type=chapter&action=deleteComment&idComment=<?= $commentReport['id']?>"><i class="fas fa-trash-alt"></i></a></p>
                             </div>
                         </div>
                         <hr>
@@ -69,17 +70,17 @@ ob_start();
 
         ?>
         <div class="col-lg-8">
-            <a href="/?type=chapter&action=chapter&idChapter=<?= $chapter['id']?>">
+            <a href="<?= $DOMAINE ?>?type=chapter&action=chapter&idChapter=<?= $chapter['id']?>">
                 <h6>Chapitre <?= $chapter['chapter_number'] .' - '. $chapter['chapter_name']?></h6>
             </a>
         </div>
 
 
         <div class="col-lg-1">
-            <p><a href="/?type=chapter&action=forUpdateChapter&idChapter=<?= $chapter['id'] ?>"><i class="fas fa-pencil-alt"></i></a></p>
+            <p><a href="<?= $DOMAINE ?>?type=chapter&action=forUpdateChapter&idChapter=<?= $chapter['id'] ?>"><i class="fas fa-pencil-alt"></i></a></p>
         </div>
         <div class="col-lg-1">
-            <p><a href="/?type=chapter&action=deleteChapter&idChapter=<?= $chapter['id'] ?>"><i class="fas fa-trash-alt"></i></a></p>
+            <p><a href="<?= $DOMAINE ?>?type=chapter&action=deleteChapter&idChapter=<?= $chapter['id'] ?>"><i class="fas fa-trash-alt"></i></a></p>
         </div>
 
         <?php

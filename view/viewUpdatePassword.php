@@ -1,4 +1,5 @@
 <?php
+require('env.php');
 $titlePage = "Changer le mot de passe";
 
 ob_start();

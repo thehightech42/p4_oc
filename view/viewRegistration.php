@@ -1,5 +1,4 @@
 <?php
-
 $titlePage = "Inscription";
 $script = "<script src=\"js/gestion.js\"></script>";
 ob_start();

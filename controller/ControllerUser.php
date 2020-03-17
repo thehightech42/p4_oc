@@ -1,7 +1,6 @@
 <?php
 namespace P4\Controller;
 use P4\Model\ManagementUser;
-ob_start();
 class ControllerUser{
     private $_managementUser;
     function __construct()
@@ -33,7 +32,6 @@ class ControllerUser{
                 $this->addUser($userInformation);
             }else{
                 $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
-                header("Status: 301 Move permanently", false, 301);
                 header('Location: /?type=user&action=forSingIn', true);
                 exit();
             }

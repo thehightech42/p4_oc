@@ -1,4 +1,5 @@
 <?php
+require('env.php');
 ob_start();
 
 while($use_chapter = $chapter->fetch()){
@@ -20,7 +21,7 @@ while($use_chapter = $chapter->fetch()){
 }
 if(isset($_SESSION['pseudo'])){
     ?>
-    <form action="/?type=chapter&action=addComment&idChapter=<?= $id; ?>" method="POST" class="mb-3">
+    <form action="<?= $DOMAINE ?>?type=chapter&action=addComment&idChapter=<?= $id; ?>" method="POST" class="mb-3">
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Votre commentaire : </label>
             <input type="text" id="contentComment" name="content" class="form-control" placeholder="Votre commentaire !">
@@ -50,7 +51,7 @@ while($comment = $comments->fetch()){
             </div>
 
             <div class="col-lg-2">
-                <a href="/?type=chapter&action=reportComment&idComment=<?= $comment['id']?>&idChapter=<?=$_GET['idChapter']?>" class="align-middle">Signaler</a>
+                <a href="<?= $DOMAINE ?>?type=chapter&action=reportComment&idComment=<?= $comment['id']?>&idChapter=<?=$_GET['idChapter']?>" class="align-middle">Signaler</a>
             </div>
     </div>
     <hr>

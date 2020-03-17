@@ -1,5 +1,4 @@
 <?php
-
 $titlePage = "Gestion des commentaires";
 ob_start();
 

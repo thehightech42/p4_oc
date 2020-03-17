@@ -1,5 +1,4 @@
 <?php
-
 $titlePage = "Gestion du compte";
 
 ob_start();
