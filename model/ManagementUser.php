@@ -1,6 +1,7 @@
 <?php
 namespace P4\Model;
 require_once('ManagementBDD.php');
+
 class ManagementUser extends ManagementBDD{
     public function tryPseudo($pseudo){
         $reqPseudo = $this->_bd->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');

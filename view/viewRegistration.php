@@ -8,9 +8,8 @@ ob_start();
         <div class="col-lg-10 mx-auto">
             <h3>Pourquoi s'inscrire ?</h3>
             <ul>
-                <li>Pour commenter les chapitres</li>
-                <li>Pour participer à la modération des commentaires</li>
-                <li>Pour être informer des prochains chapitres</li>
+                <li>Pour commenter les chapitres.</li>
+                <li>D'autres fonctionnalités arriverons bientôt !</li>
             </ul>
         </div>
     </div>
@@ -21,7 +20,7 @@ ob_start();
                 Inscription :
             </h3>
 
-        <form action="/?type=user&action=registration" method="POST">
+        <form id="formWithPassword" action="/?type=user&action=registration" method="POST">
             <div class="form-group">
                 <label for="first_name">Prenom :</label>
                 <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" name ="first_name" placeholder="Prenom"
@@ -99,11 +98,11 @@ ob_start();
 
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                <input type="password" class="form-control<?php if($tryPass === 0){ ?> is-invalid<?php } ?>" id="password" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="form-group">
                 <label for="password1">Mot de passe de confirmation :</label>
-                <input type="password" class="form-control" id="password1" name="password1" placeholder="Mot de passe" required>
+                <input type="password" class="form-control <?php if($tryPass === 0){ ?> is-invalid<?php } ?>" id="password1" name="password1" placeholder="Mot de passe" required>
                 <div class="invalid-feedback">
                     Les mot de passe ne sont pas identique !
                 </div>

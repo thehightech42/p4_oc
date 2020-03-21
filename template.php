@@ -1,15 +1,18 @@
 <?php
-if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
-    $admin = 1;
-}else{
-    $admin = 0;
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-
     <head>
+        <meta charset="utf-8"/>
+        <title> <?= $titlePage; ?> </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <meta name="title" content="<?= $titlePage ?>"/>
+        <meta name="description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
+        <meta name="url" content="http://p4.antoninpfistner.fr"/>
+        <meta name="image" content="../img-car/Logo-JD.v1-Carre.png"/>
+
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:title" content="<?= $titlePage ?>"/>
         <meta name="twitter:description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
@@ -21,27 +24,18 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
         <meta property="og:url" content="http://p4.antoninpfistner.fr"/>
         <meta property="og:image" content="../img-car/Logo-JD.v1-Carre.png"/>
 
-        <meta name="title" content="<?= $titlePage ?>"/>
-        <meta name="description" content="Billet simple pour l'Alaska - Un livre publié chapitre par chapitre en ligne."/>
-        <meta name="url" content="http://p4.antoninpfistner.fr"/>
-        <meta name="image" content="../img-car/Logo-JD.v1-Carre.png"/>
+        <!--CSS Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <title> <?= $titlePage; ?> </title>
         <!-- Style -->
-        <link href="style/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
         <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
         <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
-
-        <!--CSS Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style/style.css">
     </head>
 
     <body>
-    <div id="body-page" class="container-fluid p-0<?php if($admin == 1){?> m-0<?php }?>">
+    <div id="body-page" class="container-fluid p-0">
         <div class="row m-0 p-0">
             <div class="col-lg-12 p-0">
                 <?php include('view/nav.php');?>

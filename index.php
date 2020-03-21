@@ -1,13 +1,14 @@
 <?php
 ob_start();
 session_start();
+
 use P4\Controller\ControllerChapter;
 use P4\Controller\ControllerUser;
 use P4\Gestion\Gestion;
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+
 require('gestion/Autoloader.php');
 Autoloader::register();
+
 try {
         if(isset($_GET['type']) && isset($_GET['action'])){
             if($_GET['type'] === "chapter"){
@@ -20,10 +21,9 @@ try {
                         $test = $gestion->controlNumber($_GET['idChapter']);
                     }
                     if(!$test){
-                        header('Location: '.$_SERVER['SERVER_NAME']);
+                        header('Location: /');
                     }
                 }
-
                 $controller_chapter = new ControllerChapter;
                 if($_GET['action'] === 'chapter'){
                     $controller_chapter->chapterAndComments($_GET['idChapter']);
@@ -127,7 +127,7 @@ try {
                 $controller_chapter->chapterList();
             }
         }
-        elseif(isset($_GET['type']) && $_GET['type'] === "administration"){
+        elseif(isset($_GET['type']) && $_GET['type'] === "administration" && $_SESSION['admin'] === "1"){
             $controller_chapter = new ControllerChapter;
             $controller_chapter->administrationPage();
         }

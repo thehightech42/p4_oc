@@ -3,16 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="3c49a44c-7d44-461f-b61b-68989f4e356f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerChapter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion/Gestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/Gestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/gestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ManagementBDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementBDD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ManagementChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ManagementChapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewAddChapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewAddChapter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewAdministration.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewAdministration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewChapterAndComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterAndComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewHome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewManageAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewManageAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewChapterList.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewChapterList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewContact.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewContact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewRegistration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewReportComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewReportComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewSinIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewSinIn.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/viewUpdatePassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewUpdatePassword.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +104,7 @@
       <workItem from="1583862332533" duration="5884000" />
       <workItem from="1583937566714" duration="25420000" />
       <workItem from="1584380550437" duration="726000" />
-      <workItem from="1584443065359" duration="11719000" />
+      <workItem from="1584443065359" duration="43460000" />
     </task>
     <servers />
   </component>
@@ -148,10 +152,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="828" y="431" key="com.jetbrains.php.framework.generators.custom.CustomFrameworkDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582216853986" />
-    <state x="550" y="83" width="819" height="873" key="find.popup" timestamp="1582593731270">
+    <state x="550" y="83" width="819" height="873" key="find.popup" timestamp="1584639897155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="550" y="83" width="819" height="873" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582593731270" />
+    <state x="550" y="83" width="819" height="873" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584639897155" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1582253006705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

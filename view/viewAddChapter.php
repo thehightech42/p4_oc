@@ -6,7 +6,8 @@ ob_start();
     <script>
         tinymce.init({
             selector: '#mytextarea',
-            height : 600
+            height : 600,
+            plugins : 'advlist autolink link image lists charmap print preview'
         });
     </script>
 <?php
@@ -65,7 +66,14 @@ if($_GET['action'] === 'forUpdateChapter'){
 
       <div class="form-group">
         <label for="exampleInputPassword1">Numéro du Chapitre :</label>
-        <input type="number" class="form-control" id="chapterNumber" name="chapter_number" required min="1" placeholder="3"
+        <input type="number" class="form-control<?php
+        if(!isset($informationChapter['chapter_number']) && isset($informationChapter['chapter_name'])) {
+            ?>
+            is-invalid
+            <?php
+        }
+        ?>
+        " id="chapterNumber" name="chapter_number" required min="1" placeholder="3"
             <?php
             if(isset($upChapter['chapter_number'])){
                 ?>
@@ -74,6 +82,9 @@ if($_GET['action'] === 'forUpdateChapter'){
             }
             ?>
           >
+          <div class="invalid-feedback">
+              Numéro de chapitre déjà utilisé !
+          </div>
           <small id="chapterNumberHelp" class="form-text text-muted">Le numéro de chapitre est un numéro unique, utilisé pour le classement des chapitres.</small>
       </div>
 
@@ -84,7 +95,7 @@ if($_GET['action'] === 'forUpdateChapter'){
                 if(isset($upChapter['chapter_content'])){
                     echo $upChapter['chapter_content'];
                 }elseif(isset($informationChapter['chapter_content'])){
-                    echo $informationChapter['chapter_name'];
+                    echo $informationChapter['chapter_content'];
                 }
                 ?>
             </textarea>

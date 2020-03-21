@@ -1,13 +1,14 @@
 <?php
 namespace P4\Controller;
 use P4\Model\ManagementUser;
+
 class ControllerUser{
     private $_managementUser;
     function __construct()
     {
         $this->_managementUser = new ManagementUser;
     }
-    public function addUser($userInformation = []){
+    public function addUser($userInformation = [], $tryPass = 1){
         require('view/viewRegistration.php');
     }
     public function registerUser($first_name, $last_name, $pseudo, $mail, $password, $password1){
@@ -32,11 +33,12 @@ class ControllerUser{
                 $this->addUser($userInformation);
             }else{
                 $userRegister = $this->_managementUser->registerUser($first_name, $last_name, $pseudo, $mail, password_hash($password, PASSWORD_DEFAULT));
-                header('Location: /?type=user&action=forSingIn', true);
+                header('Location: /?type=user&action=forSinIn', true);
                 exit();
             }
         }else{
-            $this->addUser($userInformation);
+            $tryPass = 0;
+            $this->addUser($userInformation, $tryPass);
         }
     }
     public function sinIn($pseudo, $password){
@@ -50,8 +52,6 @@ class ControllerUser{
             $_SESSION['idUser'] = $informationsLogin['id'];
             $_SESSION['first_name'] = $informationsLogin['first_name'];
             $_SESSION['last_name'] = $informationsLogin['last_name'];
-            /*setcookie('pseudo', $informationsLogin['pseudo'], time() + 365*24*3600, null, null, false, true);
-            setcookie('password', $informationsLogin['pass_hash'], time() + 365*24*3600, null, null, false, true);*/
             header('Location: /', TRUE);
         }else{
            header('Location: /?type=user&action=forSinIn&info=echec');
@@ -125,7 +125,7 @@ class ControllerUser{
             require('view/viewUpdatePassword.php');
         }
     }
-    public function forContact(){
+    public function forContact($info = 0){
         require('view/viewContact.php');
     }
 
@@ -141,10 +141,9 @@ class ControllerUser{
 
         $retour = mail('antonin.pfistner@gmail.com', $subject, $message, $entete);
         if($retour) {
-            echo '<p>Votre message a bien été envoyé.</p>';
-            $this->forContact();
+            $this->forContact("Votre message a bien été envoyé.");
         }else{
-            $this->forContact();
+            $this->forContact("Echec de l'envoie du message");
         }
     }
 }

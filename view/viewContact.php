@@ -67,6 +67,12 @@ ob_start();
     </form>
 
 <?php
+if(is_string($info)){
+    echo $info;
+}
+?>
+
+<?php
 $content = ob_get_clean();
 
 require('template.php');

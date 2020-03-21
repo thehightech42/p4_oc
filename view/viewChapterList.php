@@ -4,7 +4,7 @@ ob_start();
 
 $titlePage = "Listes des articles";
 
-require_once('gestion/Gestion.php');
+//require_once('gestion/Gestion.php');
 $gestion = new Gestion;
 
 ?>

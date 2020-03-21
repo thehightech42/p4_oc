@@ -1,12 +1,12 @@
 <?php
 namespace P4\Model;
 
-//require_once('ManagementBDD.php');
+require_once('ManagementBDD.php');
 
 class ManagementChapter extends ManagementBDD{
 
     public function chapterLists(){
-        $posts = $this->_bd->query('SELECT * FROM chapters ORDER BY id DESC');
+        $posts = $this->_bd->query('SELECT * FROM chapters ORDER BY chapter_number DESC');
         return $posts;
     }
 
@@ -29,13 +29,12 @@ class ManagementChapter extends ManagementBDD{
     }
 
     public function registerChapter($chapter_name, $chapter_number, $chapter_content){
-        $registerChapter = $this->_bd->prepare('INSERT INTO chapters(chapter_name, chapter_number, chapter_content) VALUES(:chapter_name, :chapter_number, :chapter_content)');
+        $registerChapter = $this->_bd->prepare('INSERT INTO chapters(chapter_name, chapter_number, chapter_content, published_date) VALUES(:chapter_name, :chapter_number, :chapter_content, NOW())');
         $registerChapter->execute(array(
             'chapter_name' => $chapter_name,
             'chapter_number' => $chapter_number,
             'chapter_content' => $chapter_content
         ));
-
     }
 
     public function forUpdateChapter($id){
@@ -92,9 +91,7 @@ class ManagementChapter extends ManagementBDD{
     }
 
     public function tenLastComments(){
-        $comments = $this->_bd->query('SELECT pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year  FROM comments LIMIT 10');
+        $comments = $this->_bd->query('SELECT pseudo, content, DAY(published_date) AS day, MONTH(published_date) AS month, YEAR(published_date) AS year  FROM comments  ORDER BY id DESC LIMIT 10');
         return $comments;
     }
-
-
 }

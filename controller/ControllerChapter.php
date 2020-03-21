@@ -2,7 +2,7 @@
 namespace P4\Controller;
 use P4\Model\ManagementChapter;
 
-    class ControllerChapter{ //Chapter controller
+    class ControllerChapter{ 
 
         private $_managementChapter;
 
@@ -20,6 +20,8 @@ use P4\Model\ManagementChapter;
         public function chapterAndComments($idChapter){
             $chapter = $this->_managementChapter->chapter($idChapter);
             $comments = $this->_managementChapter->comments($idChapter);
+            $dateChapter = $this->_managementChapter->date('chapters', $idChapter);
+
             $test = $chapter->rowCount();
             if($test === 0){
                 $this->chapterList();
